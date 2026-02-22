@@ -1,0 +1,280 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ui } from '../../../i18n/ui';
+
+const lang = 'en';
+const t = ui[lang];
+---
+
+<Layout title="Resume - John Doe">
+  <div class="resume-container">
+    <header class="resume-header">
+      <h1 class="resume-name">John Doe</h1>
+      <p class="resume-title">Software Developer</p>
+      <div class="resume-contact">
+        <span>john.doe@email.com</span>
+        <span>•</span>
+        <span>City, Country</span>
+        <span>•</span>
+        <span>github.com/johndoe</span>
+      </div>
+    </header>
+
+    <section class="resume-section">
+      <h2 class="section-title">Work Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Senior Software Developer</h3>
+          <span class="company">Tech Company Inc.</span>
+          <span class="period">2022 - Present</span>
+        </div>
+        <ul class="experience-description">
+          <li>Led development of microservices architecture serving 1M+ users</li>
+          <li>Mentored junior developers and conducted code reviews</li>
+          <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Software Developer</h3>
+          <span class="company">StartupXYZ</span>
+          <span class="period">2020 - 2022</span>
+        </div>
+        <ul class="experience-description">
+          <li>Developed full-stack web applications using React and Node.js</li>
+          <li>Collaborated with UX team to improve user experience</li>
+          <li>Optimized database queries improving response times by 40%</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Junior Developer</h3>
+          <span class="company">Web Agency Co.</span>
+          <span class="period">2018 - 2020</span>
+        </div>
+        <ul class="experience-description">
+          <li>Built responsive websites for various clients</li>
+          <li>Maintained and updated existing client projects</li>
+          <li>Participated in agile development processes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Skills</h2>
+      
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="category-title">Frontend</h3>
+          <ul class="skill-list">
+            <li>JavaScript/TypeScript</li>
+            <li>React</li>
+            <li>HTML/CSS</li>
+            <li>Astro</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Backend</h3>
+          <ul class="skill-list">
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>PostgreSQL</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Tools & DevOps</h3>
+          <ul class="skill-list">
+            <li>Git</li>
+            <li>Docker</li>
+            <li>AWS</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Soft Skills</h3>
+          <ul class="skill-list">
+            <li>Team Leadership</li>
+            <li>Problem Solving</li>
+            <li>Communication</li>
+            <li>Agile/Scrum</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      
+      <div class="education-item">
+        <div class="education-header">
+          <h3 class="degree">Bachelor's Degree in Computer Science</h3>
+          <span class="school">University of Technology</span>
+          <span class="period">2014 - 2018</span>
+        </div>
+        <p class="education-description">Graduated with honors. Focus on software engineering and data structures.</p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Achievements</h2>
+      
+      <ul class="achievements-list">
+        <li>Winner of Company Hackathon 2023</li>
+        <li>Published open-source library with 500+ GitHub stars</li>
+        <li>Speaker at local tech meetup on modern web development</li>
+        <li>Certified AWS Solutions Architect</li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .resume-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .resume-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .resume-title {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin: 0 0 1rem 0;
+  }
+
+  .resume-contact {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  .resume-section {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #667eea;
+    display: inline-block;
+  }
+
+  .experience-item,
+  .education-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-header,
+  .education-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .job-title,
+  .degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .company,
+  .school {
+    font-weight: 500;
+    color: #667eea;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  .experience-description,
+  .education-description {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .experience-description li,
+  .achievements-list li {
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    background: var(--hover-bg);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: #667eea;
+  }
+
+  .skill-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .skill-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .achievements-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .achievements-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .resume-name {
+      font-size: 2rem;
+    }
+
+    .experience-header,
+    .education-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+</style>

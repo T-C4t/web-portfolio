@@ -1,0 +1,165 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import { projects, categories } from '../../../data/projects';
+
+const lang = 'en';
+---
+
+<Layout title="Projects - John Doe">
+  <section class="projects-page">
+    <header class="projects-header">
+      <h1 class="page-title">My Projects</h1>
+      <p class="page-description">
+        A collection of projects I've worked on, ranging from frontend websites to backend APIs and full-stack applications.
+      </p>
+    </header>
+
+    <div class="filter-section">
+      <button class="filter-btn active" data-filter="all">
+        All
+      </button>
+      {categories.map((category) => (
+        <button class="filter-btn" data-filter={category.id}>
+          {category.label.en}
+        </button>
+      ))}
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
+    </div>
+
+    <p class="no-results" id="no-results" style="display: none;">
+      No projects found in this category.
+    </p>
+  </section>
+</Layout>
+
+<script>
+  function initFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+    const noResults = document.getElementById('no-results');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        let visibleCount = 0;
+
+        projects.forEach((project) => {
+          const category = project.getAttribute('data-category');
+          
+          if (filter === 'all' || category === filter) {
+            (project as HTMLElement).style.display = 'block';
+            visibleCount++;
+          } else {
+            (project as HTMLElement).style.display = 'none';
+          }
+        });
+
+        // Show/hide no results message
+        if (noResults) {
+          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      });
+    });
+  }
+
+  // Initialize on page load
+  initFilter();
+
+  // Re-initialize on view transitions if enabled
+  document.addEventListener('astro:page-load', initFilter);
+</script>
+
+<style>
+  .projects-page {
+    padding: 2rem 0;
+  }
+
+  .projects-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+  }
+
+  .filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    color: white;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .no-results {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    padding: 3rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

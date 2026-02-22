@@ -1,0 +1,280 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ui } from '../../../i18n/ui';
+
+const lang = 'cz';
+const t = ui[lang];
+---
+
+<Layout title="Životopis - John Doe">
+  <div class="resume-container">
+    <header class="resume-header">
+      <h1 class="resume-name">John Doe</h1>
+      <p class="resume-title">Vývojář software</p>
+      <div class="resume-contact">
+        <span>john.doe@email.com</span>
+        <span>•</span>
+        <span>Město, Země</span>
+        <span>•</span>
+        <span>github.com/johndoe</span>
+      </div>
+    </header>
+
+    <section class="resume-section">
+      <h2 class="section-title">Pracovní zkušenosti</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Senior vývojář software</h3>
+          <span class="company">Tech Company Inc.</span>
+          <span class="period">2022 - současnost</span>
+        </div>
+        <ul class="experience-description">
+          <li>Vedl vývoj mikroslužebí architektury pro 1M+ uživatelů</li>
+          <li>Mentoroval junior vývojáře a prováděl code review</li>
+          <li>Implementoval CI/CD pipeline snižující čas nasazení o 60%</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Vývojář software</h3>
+          <span class="company">StartupXYZ</span>
+          <span class="period">2020 - 2022</span>
+        </div>
+        <ul class="experience-description">
+          <li>Vyvíjel full-stack webové aplikace v React a Node.js</li>
+          <li>Spolupracoval s UX týmem na zlepšení uživatelské zkušenosti</li>
+          <li>Optimalizoval databázové dotazy a zlepšil odezvu o 40%</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="job-title">Junior vývojář</h3>
+          <span class="company">Web Agentura s.r.o.</span>
+          <span class="period">2018 - 2020</span>
+        </div>
+        <ul class="experience-description">
+          <li>Vytvářel responzivní webové stránky pro různé klienty</li>
+          <li>Spravoval a aktualizoval stávající projekty klientů</li>
+          <li>Podílel se na agilním vývojovém procesu</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Dovednosti</h2>
+      
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="category-title">Frontend</h3>
+          <ul class="skill-list">
+            <li>JavaScript/TypeScript</li>
+            <li>React</li>
+            <li>HTML/CSS</li>
+            <li>Astro</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Backend</h3>
+          <ul class="skill-list">
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>PostgreSQL</li>
+            <li>REST API</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Nástroje & DevOps</h3>
+          <ul class="skill-list">
+            <li>Git</li>
+            <li>Docker</li>
+            <li>AWS</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-title">Měkké dovednosti</h3>
+          <ul class="skill-list">
+            <li>Vedení týmu</li>
+            <li>Řešení problémů</li>
+            <li>Komunikace</li>
+            <li>Agile/Scrum</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Vzdělání</h2>
+      
+      <div class="education-item">
+        <div class="education-header">
+          <h3 class="degree">Bakalářský titul v oboru Informatika</h3>
+          <span class="school">Technická univerzita</span>
+          <span class="period">2014 - 2018</span>
+        </div>
+        <p class="education-description">Vystudoval s vyznamenáním. Zaměření na softwarové inženýrství a datové struktury.</p>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-title">Ocenění</h2>
+      
+      <ul class="achievements-list">
+        <li>Vítěz firemního Hackathonu 2023</li>
+        <li>Publikoval open-source knihovnu s 500+ hvězdami na GitHubu</li>
+        <li>Řečník na lokálním tech meetupu o moderním webovém vývoji</li>
+        <li>Certifikovaný AWS Solutions Architect</li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .resume-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .resume-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .resume-title {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin: 0 0 1rem 0;
+  }
+
+  .resume-contact {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  .resume-section {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #667eea;
+    display: inline-block;
+  }
+
+  .experience-item,
+  .education-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-header,
+  .education-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .job-title,
+  .degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .company,
+  .school {
+    font-weight: 500;
+    color: #667eea;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  .experience-description,
+  .education-description {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .experience-description li,
+  .achievements-list li {
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    background: var(--hover-bg);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: #667eea;
+  }
+
+  .skill-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .skill-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .achievements-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .achievements-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .resume-name {
+      font-size: 2rem;
+    }
+
+    .experience-header,
+    .education-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+</style>

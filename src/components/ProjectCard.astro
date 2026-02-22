@@ -1,0 +1,143 @@
+---
+import type { Project, ProjectCategory } from '../data/projects';
+
+interface Props {
+  project: Project;
+  lang: 'en' | 'cz';
+}
+
+const { project, lang } = Astro.props;
+---
+
+<article class="project-card" data-category={project.category}>
+  <div class="project-image">
+    <div class="placeholder-image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="project-content">
+    <span class="project-category">{project.category}</span>
+    
+    <h3 class="project-title">{project.title[lang]}</h3>
+    
+    <p class="project-description">{project.description[lang]}</p>
+    
+    <div class="project-tags">
+      {project.tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+    
+    <div class="project-links">
+      {project.liveUrl && (
+        <a href={project.liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+          {lang === 'en' ? 'Live Demo' : 'Živá ukázka'}
+        </a>
+      )}
+      {project.repoUrl && (
+        <a href={project.repoUrl} class="project-link" target="_blank" rel="noopener noreferrer">
+          {lang === 'en' ? 'Source Code' : 'Zdrojový kód'}
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  html.dark .project-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-image {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--text-color);
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--hover-bg);
+    border-radius: 4px;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #667eea;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover {
+    opacity: 0.8;
+  }
+</style>
