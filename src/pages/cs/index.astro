@@ -7,43 +7,204 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <Layout title="Richard Matečka">
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-label">Portfolio</p>
-      <h1 class="hero-name">Richard<br/>Matečka</h1>
-      <div class="hero-divider"></div>
-      <p class="hero-tagline">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-      <div class="hero-cta">
-        <a href={translatePath('/projects')} class="btn btn-primary">
-          Projekty
-        </a>
-        <a href={translatePath('/contact')} class="btn btn-secondary">
-          Kontakt
+  <div class="scroll-container">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+      <div class="bg-gradient bg-gradient-1"></div>
+      <div class="bg-gradient bg-gradient-2"></div>
+      <div class="bg-gradient bg-gradient-3"></div>
+      <div class="bg-noise"></div>
+    </div>
+
+    <!-- Section 1: Hero -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <p class="hero-label">Portfolio</p>
+        <h1 class="hero-name">Richard<br/>Matečka</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div class="hero-cta">
+          <a href={translatePath('/projects')} class="btn btn-primary">
+            Projekty
+          </a>
+          <a href={translatePath('/contact')} class="btn btn-secondary">
+            Kontakt
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Section 2: About -->
+    <section class="content-section">
+      <div class="section-content">
+        <p class="section-label">O mně</p>
+        <h2 class="section-title">Lorem ipsum dolor sit amet</h2>
+        <p class="section-text">
+          Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p class="section-text">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: Selected Work -->
+    <section class="content-section">
+      <div class="section-content">
+        <p class="section-label">Vybrané práce</p>
+        <h2 class="section-title">Projekty</h2>
+        <p class="section-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href={translatePath('/projects')} class="link-arrow">
+          Zobrazit všechny projekty
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section class="content-section contact-section">
+      <div class="section-content">
+        <p class="section-label">Kontakt</p>
+        <h2 class="section-title">Spojme se</h2>
+        <p class="section-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div class="cta-group">
+          <a href={translatePath('/contact')} class="btn btn-primary">
+            Kontaktovat
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-text">Richard Matečka</p>
+        <p class="footer-copyright">© 2026</p>
+      </div>
+    </footer>
+  </div>
 </Layout>
 
 <style>
-  .hero {
-    min-height: 90vh;
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .scroll-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Animated Background */
+  .bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .bg-gradient {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .bg-gradient-1 {
+    width: 600px;
+    height: 600px;
+    background: #cf03fc;
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+  }
+
+  .bg-gradient-2 {
+    width: 500px;
+    height: 500px;
+    background: #9d03fc;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -7s;
+  }
+
+  .bg-gradient-3 {
+    width: 400px;
+    height: 400px;
+    background: #cf03fc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -14s;
+    opacity: 0.3;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(50px, 30px) scale(1.05);
+    }
+    50% {
+      transform: translate(-30px, 60px) scale(0.95);
+    }
+    75% {
+      transform: translate(-60px, -30px) scale(1.02);
+    }
+  }
+
+  .bg-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* Sections */
+  .hero-section {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
     padding: 4rem 2rem;
-    background: 
-      radial-gradient(ellipse at 20% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
-      var(--bg-color);
+    background: rgba(0, 0, 0, 0.02);
   }
 
   .hero-content {
     max-width: 900px;
-    text-align: left;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .hero-label {
@@ -56,45 +217,45 @@ const translatePath = useTranslatedPath(lang);
   }
 
   .hero-name {
-    font-size: clamp(3.5rem, 12vw, 8rem);
-    font-weight: 300;
-    line-height: 0.95;
+    font-size: clamp(3.5rem, 14vw, 10rem);
+    font-weight: 600;
+    line-height: 0.92;
     margin: 0 0 2rem 0;
     color: var(--text-color);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
   .hero-divider {
     width: 60px;
     height: 2px;
-    background: var(--text-color);
-    opacity: 0.3;
-    margin: 0 0 2rem 0;
+    background: #cf03fc;
+    margin: 0 auto 2rem auto;
   }
 
   .hero-tagline {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: var(--text-color);
     opacity: 0.7;
-    margin: 0 0 3rem 0;
+    margin: 0 auto 3rem auto;
     line-height: 1.7;
-    max-width: 500px;
+    max-width: 560px;
   }
 
   .hero-cta {
     display: flex;
     gap: 1rem;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .btn {
     padding: 1rem 2rem;
-    border-radius: 4px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.02em;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .btn-primary {
@@ -104,8 +265,8 @@ const translatePath = useTranslatedPath(lang);
   }
 
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   }
 
   .btn-secondary {
@@ -118,17 +279,157 @@ const translatePath = useTranslatedPath(lang);
     border-color: var(--text-color);
   }
 
+  .scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-color);
+    opacity: 0.4;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-color), transparent);
+    opacity: 0.3;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* Content Sections */
+  .content-section {
+    position: relative;
+    z-index: 1;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .section-content {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .section-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #cf03fc;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .section-text {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    opacity: 0.65;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.75;
+  }
+
+  .section-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .link-arrow:hover {
+    color: #cf03fc;
+  }
+
+  .link-arrow svg {
+    transition: transform 0.3s ease;
+  }
+
+  .link-arrow:hover svg {
+    transform: translateX(4px);
+  }
+
+  .contact-section {
+    min-height: 60vh;
+  }
+
+  .cta-group {
+    margin-top: 2rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.4;
+    margin: 0;
+  }
+
   @media (max-width: 768px) {
     .hero-content {
+      padding: 0 1rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      gap: 0.5rem;
       text-align: center;
-    }
-
-    .hero-divider {
-      margin: 0 auto 2rem auto;
-    }
-
-    .hero-cta {
-      justify-content: center;
     }
   }
 </style>
