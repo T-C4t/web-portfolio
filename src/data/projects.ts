@@ -4,11 +4,11 @@ export interface Project {
   id: string;
   title: {
     en: string;
-    cz: string;
+    cs: string;
   };
   description: {
     en: string;
-    cz: string;
+    cs: string;
   };
   category: ProjectCategory;
   tags: string[];
@@ -22,11 +22,11 @@ export const projects: Project[] = [
     id: 'portfolio-v1',
     title: {
       en: 'Personal Portfolio v1',
-      cz: 'Osobní portfolio v1',
+      cs: 'Osobní portfolio v1',
     },
     description: {
       en: 'My first portfolio website built with vanilla HTML, CSS, and JavaScript. Features responsive design and smooth animations.',
-      cz: 'Moje první portfolio postavené s vanilla HTML, CSS a JavaScriptem. Nabízí responzivní design a plynulé animace.',
+      cs: 'Moje první portfolio postavené s vanilla HTML, CSS a JavaScriptem. Nabízí responzivní design a plynulé animace.',
     },
     category: 'frontend',
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
@@ -37,11 +37,11 @@ export const projects: Project[] = [
     id: 'task-manager',
     title: {
       en: 'Task Manager API',
-      cz: 'API správce úkolů',
+      cs: 'API správce úkolů',
     },
     description: {
       en: 'RESTful API for task management with authentication, authorization, and CRUD operations. Built with Node.js and Express.',
-      cz: 'RESTful API pro správu úkolů s autentifikací, autorizací a CRUD operacemi. Postaveno s Node.js a Express.',
+      cs: 'RESTful API pro správu úkolů s autentifikací, autorizací a CRUD operacemi. Postaveno s Node.js a Express.',
     },
     category: 'backend',
     tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
@@ -51,11 +51,11 @@ export const projects: Project[] = [
     id: 'ecommerce-platform',
     title: {
       en: 'E-commerce Platform',
-      cz: 'E-commerce platforma',
+      cs: 'E-commerce platforma',
     },
     description: {
       en: 'Full-stack e-commerce solution with shopping cart, payment integration, and admin dashboard. Built with React and Node.js.',
-      cz: 'Kompletní e-commerce řešení s nákupním košíkem, platební integrací a administrátorským panelem. Postaveno s React a Node.js.',
+      cs: 'Kompletní e-commerce řešení s nákupním košíkem, platební integrací a administrátorským panelem. Postaveno s React a Node.js.',
     },
     category: 'fullstack',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
@@ -66,11 +66,11 @@ export const projects: Project[] = [
     id: 'cli-tool',
     title: {
       en: 'File Organizer CLI',
-      cz: 'CLI nástroj pro organizaci souborů',
+      cs: 'CLI nástroj pro organizaci souborů',
     },
     description: {
       en: 'Command-line tool to automatically organize files in directories based on file type, date, or custom rules.',
-      cz: 'Příkazový nástroj pro automatickou organizaci souborů do adresářů podle typu, data nebo vlastních pravidel.',
+      cs: 'Příkazový nástroj pro automatickou organizaci souborů do adresářů podle typu, data nebo vlastních pravidel.',
     },
     category: 'tools',
     tags: ['Python', 'CLI', 'Automation'],
@@ -80,11 +80,11 @@ export const projects: Project[] = [
     id: 'weather-dashboard',
     title: {
       en: 'Weather Dashboard',
-      cz: 'Dashboard počasí',
+      cs: 'Dashboard počasí',
     },
     description: {
       en: 'Interactive weather dashboard with location search, 7-day forecast, and beautiful visualizations using weather API.',
-      cz: 'Interaktivní dashboard počasí s vyhledáváním lokací, 7denní předpovědí a krásnými vizualizacemi pomocí weather API.',
+      cs: 'Interaktivní dashboard počasí s vyhledáváním lokací, 7denní předpovědí a krásnými vizualizacemi pomocí weather API.',
     },
     category: 'frontend',
     tags: ['React', 'Weather API', 'Charts', 'Tailwind'],
@@ -95,11 +95,11 @@ export const projects: Project[] = [
     id: 'chat-application',
     title: {
       en: 'Real-time Chat App',
-      cz: 'Aplikace pro聊天 v reálném čase',
+      cs: 'Aplikace pro聊天 v reálném čase',
     },
     description: {
       en: 'Full-stack chat application with real-time messaging, rooms, and user authentication using WebSocket.',
-      cz: 'Kompletní chatovací aplikace se zasíláním zpráv v reálném čase, místnostmi a autentifikací uživatelů pomocí WebSocket.',
+      cs: 'Kompletní chatovací aplikace se zasíláním zpráv v reálném čase, místnostmi a autentifikací uživatelů pomocí WebSocket.',
     },
     category: 'fullstack',
     tags: ['Socket.io', 'React', 'Redis', 'Express'],
@@ -108,9 +108,9 @@ export const projects: Project[] = [
   },
 ];
 
-export const categories: { id: ProjectCategory; label: { en: string; cz: string } }[] = [
-  { id: 'frontend', label: { en: 'Frontend', cz: 'Frontend' } },
-  { id: 'backend', label: { en: 'Backend', cz: 'Backend' } },
-  { id: 'fullstack', label: { en: 'Full Stack', cz: 'Full Stack' } },
-  { id: 'tools', label: { en: 'Tools', cz: 'Nástroje' } },
+export const categories: { id: ProjectCategory; label: { en: string; cs: string } }[] = [
+  { id: 'frontend', label: { en: 'Frontend', cs: 'Frontend' } },
+  { id: 'backend', label: { en: 'Backend', cs: 'Backend' } },
+  { id: 'fullstack', label: { en: 'Full Stack', cs: 'Full Stack' } },
+  { id: 'tools', label: { en: 'Tools', cs: 'Nástroje' } },
 ];
