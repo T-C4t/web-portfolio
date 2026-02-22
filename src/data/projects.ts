@@ -106,6 +106,35 @@ export const projects: Project[] = [
     liveUrl: '#',
     repoUrl: '#',
   },
+  {
+    id: 'speechless',
+    title: {
+      en: 'Speechless',
+      cs: 'Speechless',
+    },
+    description: {
+      en: 'Python automation tool for hands-free computer control. Enables voice-controlled interactions with system functions.',
+      cs: 'Python nástroj pro automatizaci bez použití rukou. Umožňuje hlasové ovládání systémových funkcí.',
+    },
+    category: 'tools',
+    tags: ['Python', 'Automation', 'Voice Control'],
+    repoUrl: 'https://github.com/T-C4t/speechless',
+  },
+  {
+    id: 'ibo-porg-cs',
+    title: {
+      en: 'IBO PORG CS',
+      cs: 'IBO PORG CS',
+    },
+    description: {
+      en: 'Interactive web-based game and educational platform built with HTML, CSS, and JavaScript.',
+      cs: 'Interaktivní webová hra a vzdělávací platforma postavená s HTML, CSS a JavaScriptem.',
+    },
+    category: 'frontend',
+    tags: ['HTML', 'JavaScript', 'Game', 'Education'],
+    liveUrl: 'https://github.com/T-C4t/IBO-PORG-CS',
+    repoUrl: 'https://github.com/T-C4t/IBO-PORG-CS',
+  },
 ];
 
 export const categories: { id: ProjectCategory; label: { en: string; cs: string } }[] = [

@@ -36,7 +36,7 @@ const { project, lang } = Astro.props;
     <div class="project-links">
       {project.liveUrl && (
         <a href={project.liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">
-          {lang === 'en' ? 'Live Demo' : 'Živá ukázka'}
+          {lang === 'en' ? 'View' : 'Zobrazit'}
         </a>
       )}
       {project.repoUrl && (
