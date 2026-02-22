@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: web-portfolio
+    env: static
+    buildCommand: npm run build
+    publishDir: dist
+    repo: https://github.com/T-C4t/web-portfolio.git
