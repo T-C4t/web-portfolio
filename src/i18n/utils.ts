@@ -7,8 +7,8 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
-  return function translatePath(path: string) {
-    return `/${lang}${path}`
+  return function translatePath(path: string, targetLang?: keyof typeof ui) {
+    return `/${targetLang || lang}${path}`
   }
 }
 
