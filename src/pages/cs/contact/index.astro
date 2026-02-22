@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslatedPath } from '../../../i18n/utils';
 
-const lang = 'cz';
+const lang = 'cs';
 const translatePath = useTranslatedPath(lang);
 
 // Placeholder URLs - replace with actual links
@@ -127,10 +127,7 @@ const emailUrl = 'mailto:your.email@example.com';
     font-size: 2.5rem;
     font-weight: 800;
     margin: 0 0 1rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-color);
   }
 
   .page-description {
@@ -210,7 +207,7 @@ const emailUrl = 'mailto:your.email@example.com';
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #4f46e5;
     color: white;
     border: none;
     border-radius: 8px;

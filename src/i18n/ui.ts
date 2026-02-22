@@ -1,6 +1,6 @@
 export const languages = {
   en: 'English',
-  cz: 'Čeština',
+  cs: 'Čeština',
 };
 
 export const defaultLang = 'en';
@@ -12,7 +12,7 @@ export const ui = {
     'nav.resume': 'Resume',
     'nav.contact': 'Contact',
   },
-  cz: {
+  cs: {
     'nav.home': 'Domů',
     'nav.about': 'O mně',
     'nav.resume': 'Životopis',

@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import ProjectCard from '../../../components/ProjectCard.astro';
 import { projects, categories } from '../../../data/projects';
 
-const lang = 'cz';
+const lang = 'cs';
 ---
 
 <Layout title="Projekty - John Doe">
@@ -93,10 +93,7 @@ const lang = 'cz';
     font-size: 2.5rem;
     font-weight: 800;
     margin: 0 0 1rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-color);
   }
 
   .page-description {
@@ -134,7 +131,7 @@ const lang = 'cz';
   }
 
   .filter-btn.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #4f46e5;
     border-color: transparent;
     color: white;
   }
