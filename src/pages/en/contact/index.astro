@@ -5,25 +5,58 @@ import { useTranslatedPath } from '../../../i18n/utils';
 const lang = 'en';
 const translatePath = useTranslatedPath(lang);
 
-// Placeholder URLs - replace with actual links
-const githubUrl = 'https://github.com/yourusername';
+const githubUrl = 'https://github.com/T-C4t';
 const linkedinUrl = 'https://linkedin.com/in/yourusername';
-const emailUrl = 'mailto:your.email@example.com';
+const emailUrl = 'mailto:richard@example.com';
 ---
 
-<Layout title="Contact - John Doe">
+<Layout title="Contact - Richard Matečka">
   <section class="contact-page">
     <header class="contact-header">
-      <h1 class="page-title">Get in Touch</h1>
+      <p class="page-label">Get in Touch</p>
+      <h1 class="page-title">Contact</h1>
+      <div class="page-divider"></div>
       <p class="page-description">
-        Have a question or want to work together? Feel free to reach out through any of the channels below.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </header>
 
     <div class="contact-container">
+      <!-- Social Links -->
+      <div class="social-section">
+        <h2 class="section-title">Links</h2>
+        
+        <div class="social-links">
+          <a href={githubUrl} class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          
+          <a href={linkedinUrl} class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          
+          <a href={emailUrl} class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Email</span>
+          </a>
+        </div>
+      </div>
+
       <!-- Contact Form -->
-      <div class="contact-form-wrapper">
-        <h2 class="section-title">Send a Message</h2>
+      <div class="form-section">
+        <h2 class="section-title">Message</h2>
         <form class="contact-form" action={emailUrl} method="post" enctype="text/plain">
           <div class="form-group">
             <label for="name">Name</label>
@@ -43,18 +76,7 @@ const emailUrl = 'mailto:your.email@example.com';
               id="email" 
               name="email" 
               required 
-              placeholder="your.email@example.com"
-            />
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input 
-              type="text" 
-              id="subject" 
-              name="subject" 
-              required 
-              placeholder="What's this about?"
+              placeholder="your@email.com"
             />
           </div>
           
@@ -70,44 +92,9 @@ const emailUrl = 'mailto:your.email@example.com';
           </div>
           
           <button type="submit" class="submit-btn">
-            Send Message
+            Send
           </button>
         </form>
-      </div>
-
-      <!-- Social Links -->
-      <div class="social-links-wrapper">
-        <h2 class="section-title">Connect With Me</h2>
-        
-        <div class="social-links">
-          <a href={githubUrl} class="social-link" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-            <span>GitHub</span>
-          </a>
-          
-          <a href={linkedinUrl} class="social-link" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-          
-          <a href={emailUrl} class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span>Email</span>
-          </a>
-        </div>
-
-        <div class="response-time">
-          <p>Typical response time: 24-48 hours</p>
-        </div>
       </div>
     </div>
   </section>
@@ -115,51 +102,92 @@ const emailUrl = 'mailto:your.email@example.com';
 
 <style>
   .contact-page {
-    padding: 2rem 0;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .contact-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .page-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--text-color);
+    opacity: 0.5;
+    margin: 0 0 1rem 0;
   }
 
   .page-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0 0 1rem 0;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
     color: var(--text-color);
+    letter-spacing: -0.02em;
+  }
+
+  .page-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--text-color);
+    opacity: 0.3;
+    margin: 0 auto 1.5rem auto;
   }
 
   .page-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-color);
     opacity: 0.7;
-    max-width: 600px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 500px;
     margin: 0 auto;
-    line-height: 1.6;
   }
 
   .contact-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
   }
 
   .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
     margin: 0 0 1.5rem 0;
     color: var(--text-color);
+    opacity: 0.6;
   }
 
-  /* Form Styles */
-  .contact-form-wrapper {
-    background: var(--bg-color);
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+
+  .social-link:hover {
+    border-color: var(--text-color);
+  }
+
+  .social-link span {
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
 
   .contact-form {
@@ -175,18 +203,18 @@ const emailUrl = 'mailto:your.email@example.com';
   }
 
   .form-group label {
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--text-color);
   }
 
   .form-group input,
   .form-group textarea {
     padding: 0.875rem;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-family: inherit;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     background: var(--bg-color);
     color: var(--text-color);
     transition: border-color 0.2s ease;
@@ -195,7 +223,7 @@ const emailUrl = 'mailto:your.email@example.com';
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--text-color);
   }
 
   .form-group textarea {
@@ -204,83 +232,26 @@ const emailUrl = 'mailto:your.email@example.com';
   }
 
   .submit-btn {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    background: #4f46e5;
-    color: white;
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: var(--text-color);
+    color: var(--bg-color);
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.25s ease;
+    align-self: flex-start;
   }
 
   .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-  }
-
-  /* Social Links Styles */
-  .social-links-wrapper {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .social-link:hover {
-    border-color: #667eea;
-    color: #667eea;
-    transform: translateX(4px);
-  }
-
-  .social-link svg {
-    flex-shrink: 0;
-  }
-
-  .social-link span {
-    font-weight: 600;
-  }
-
-  .response-time {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .response-time p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.6;
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
     .contact-container {
       grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .page-title {
-      font-size: 2rem;
+      gap: 3rem;
     }
   }
 </style>
