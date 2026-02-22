@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { useTranslatedPath } from '../../i18n/utils';
+import { projects } from '../../data/projects';
 
 const lang = 'en';
 const translatePath = useTranslatedPath(lang);
+const featuredProjects = projects.slice(0, 4);
 ---
 
 <Layout title="Richard Matečka">
@@ -12,82 +14,119 @@ const translatePath = useTranslatedPath(lang);
     <div class="bg-animation">
       <div class="bg-gradient bg-gradient-1"></div>
       <div class="bg-gradient bg-gradient-2"></div>
-      <div class="bg-gradient bg-gradient-3"></div>
       <div class="bg-noise"></div>
     </div>
 
-    <!-- Section 1: Hero -->
+    <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
-        <p class="hero-label">Portfolio</p>
-        <h1 class="hero-name">Richard<br/>Matečka</h1>
-        <div class="hero-divider"></div>
-        <p class="hero-tagline">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <div class="hero-cta">
-          <a href={translatePath('/projects')} class="btn btn-primary">
-            View Projects
-          </a>
-          <a href={translatePath('/contact')} class="btn btn-secondary">
-            Get in Touch
-          </a>
+        <div class="hero-text">
+          <p class="hero-label">Portfolio</p>
+          <h1 class="hero-name">
+            <span class="name-first">Richard</span>
+            <span class="name-last">Matečka</span>
+          </h1>
+          <div class="hero-divider"></div>
+          <p class="hero-tagline">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div class="hero-cta">
+            <a href={translatePath('/projects')} class="btn btn-primary">
+              View Projects
+            </a>
+            <a href={translatePath('/contact')} class="btn btn-secondary">
+              Get in Touch
+            </a>
+          </div>
         </div>
       </div>
       <div class="scroll-indicator">
-        <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
     </section>
 
-    <!-- Section 2: About -->
-    <section class="content-section">
-      <div class="section-content">
-        <p class="section-label">About</p>
-        <h2 class="section-title">Lorem ipsum dolor sit amet</h2>
-        <p class="section-text">
-          Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p class="section-text">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident.
-        </p>
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="about-content">
+          <p class="about-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+          <p class="about-text">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Section 3: Selected Work -->
-    <section class="content-section">
-      <div class="section-content">
-        <p class="section-label">Selected Work</p>
-        <h2 class="section-title">Projects</h2>
-        <p class="section-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <a href={translatePath('/projects')} class="link-arrow">
-          View All Projects
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2 class="section-title">Selected Work</h2>
+        </div>
+        
+        <div class="projects-grid">
+          {featuredProjects.map((project, index) => (
+            <a 
+              href={project.repoUrl || project.liveUrl || '#'} 
+              class="project-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-index">{String(index + 1).padStart(2, '0')}</div>
+              <div class="project-info">
+                <h3 class="project-title">{project.title[lang]}</h3>
+                <p class="project-category">{project.category}</p>
+              </div>
+              <div class="project-tags">
+                {project.tags.slice(0, 3).map(tag => (
+                  <span class="project-tag">{tag}</span>
+                ))}
+              </div>
+              <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          ))}
+        </div>
+
+        <div class="projects-cta">
+          <a href={translatePath('/projects')} class="link-arrow">
+            View All Projects
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Section 4: Contact -->
-    <section class="content-section contact-section">
-      <div class="section-content">
-        <p class="section-label">Get in Touch</p>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <div class="cta-group">
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2 class="section-title">Let's Connect</h2>
+        </div>
+        <div class="contact-content">
+          <p class="contact-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
           <a href={translatePath('/contact')} class="btn btn-primary">
-            Contact Me
+            Get in Touch
           </a>
         </div>
       </div>
@@ -95,9 +134,9 @@ const translatePath = useTranslatedPath(lang);
 
     <!-- Footer -->
     <footer class="site-footer">
-      <div class="footer-content">
-        <p class="footer-text">Richard Matečka</p>
-        <p class="footer-copyright">© 2026</p>
+      <div class="footer-inner">
+        <span class="footer-name">Richard Matečka</span>
+        <span class="footer-year">© 2026</span>
       </div>
     </footer>
   </div>
@@ -112,7 +151,6 @@ const translatePath = useTranslatedPath(lang);
 
   .scroll-container {
     position: relative;
-    min-height: 100vh;
   }
 
   /* Animated Background */
@@ -130,52 +168,38 @@ const translatePath = useTranslatedPath(lang);
   .bg-gradient {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.5;
-    animation: float 20s ease-in-out infinite;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 25s ease-in-out infinite;
   }
 
   .bg-gradient-1 {
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     background: #cf03fc;
-    top: -200px;
-    left: -200px;
+    top: -300px;
+    left: -300px;
     animation-delay: 0s;
   }
 
   .bg-gradient-2 {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background: #9d03fc;
-    bottom: -150px;
-    right: -150px;
-    animation-delay: -7s;
-  }
-
-  .bg-gradient-3 {
-    width: 400px;
-    height: 400px;
-    background: #cf03fc;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: -14s;
-    opacity: 0.3;
+    bottom: -200px;
+    right: -200px;
+    animation-delay: -12s;
   }
 
   @keyframes float {
     0%, 100% {
       transform: translate(0, 0) scale(1);
     }
-    25% {
-      transform: translate(50px, 30px) scale(1.05);
+    33% {
+      transform: translate(80px, 50px) scale(1.1);
     }
-    50% {
-      transform: translate(-30px, 60px) scale(0.95);
-    }
-    75% {
-      transform: translate(-60px, -30px) scale(1.02);
+    66% {
+      transform: translate(-50px, 80px) scale(0.9);
     }
   }
 
@@ -185,66 +209,81 @@ const translatePath = useTranslatedPath(lang);
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 
-  /* Sections */
+  /* Hero Section */
   .hero-section {
     position: relative;
     z-index: 1;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 2rem;
-    background: rgba(0, 0, 0, 0.02);
+    align-items: center;
+    padding: 8rem 5vw;
   }
 
   .hero-content {
-    max-width: 900px;
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 700px;
   }
 
   .hero-label {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.4em;
     color: var(--text-color);
-    opacity: 0.5;
-    margin: 0 0 1.5rem 0;
+    opacity: 0.4;
+    margin: 0 0 2rem 0;
+    font-weight: 500;
   }
 
   .hero-name {
-    font-size: clamp(3.5rem, 14vw, 10rem);
+    margin: 0 0 2.5rem 0;
+    line-height: 0.85;
     font-weight: 600;
-    line-height: 0.92;
-    margin: 0 0 2rem 0;
+  }
+
+  .name-first {
+    display: block;
+    font-size: clamp(3rem, 10vw, 7rem);
     color: var(--text-color);
     letter-spacing: -0.03em;
   }
 
+  .name-last {
+    display: block;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--text-color);
+    letter-spacing: -0.03em;
+    margin-left: 15%;
+    opacity: 0.6;
+  }
+
   .hero-divider {
-    width: 60px;
-    height: 2px;
+    width: 80px;
+    height: 1px;
     background: #cf03fc;
-    margin: 0 auto 2rem auto;
+    margin: 0 0 2.5rem 0;
   }
 
   .hero-tagline {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: var(--text-color);
-    opacity: 0.7;
-    margin: 0 auto 3rem auto;
-    line-height: 1.7;
-    max-width: 560px;
+    opacity: 0.6;
+    margin: 0 0 3rem 0;
+    line-height: 1.8;
+    max-width: 480px;
   }
 
   .hero-cta {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -254,7 +293,7 @@ const translatePath = useTranslatedPath(lang);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9375rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -265,107 +304,201 @@ const translatePath = useTranslatedPath(lang);
   }
 
   .btn-primary:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   }
 
   .btn-secondary {
     background: transparent;
     color: var(--text-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(0, 0, 0, 0.15);
   }
 
   .btn-secondary:hover {
     border-color: var(--text-color);
   }
 
+  html.dark .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
   .scroll-indicator {
     position: absolute;
     bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 5vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  .scroll-indicator span {
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--text-color);
-    opacity: 0.4;
+    align-items: flex-start;
   }
 
   .scroll-line {
     width: 1px;
-    height: 40px;
+    height: 60px;
     background: linear-gradient(to bottom, var(--text-color), transparent);
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-
-  /* Content Sections */
-  .content-section {
+  /* Section Styles */
+  .section-inner {
     position: relative;
     z-index: 1;
-    min-height: 80vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 5vw;
+  }
+
+  .section-header {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem;
-    background: rgba(0, 0, 0, 0.02);
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
   }
 
-  .section-content {
-    max-width: 640px;
-    text-align: center;
-  }
-
-  .section-label {
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color: #cf03fc;
-    margin: 0 0 1.5rem 0;
+  .section-number {
+    font-size: 0.75rem;
     font-weight: 500;
+    color: #cf03fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
   }
 
   .section-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
-    margin: 0 0 1.5rem 0;
+    margin: 0;
     color: var(--text-color);
     letter-spacing: -0.02em;
-    line-height: 1.1;
   }
 
-  .section-text {
+  /* About Section */
+  .about-section {
+    position: relative;
+    z-index: 1;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .about-content {
+    max-width: 600px;
+    padding-left: 4rem;
+    border-left: 1px solid var(--border-color);
+  }
+
+  .about-text {
     font-size: 1.125rem;
     color: var(--text-color);
     opacity: 0.65;
-    margin: 0 0 1.25rem 0;
-    line-height: 1.75;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.85;
   }
 
-  .section-text:last-child {
+  .about-text:last-child {
     margin-bottom: 0;
+  }
+
+  /* Projects Section */
+  .projects-section {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .project-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    background: var(--bg-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .project-item:hover {
+    background: rgba(207, 3, 252, 0.03);
+  }
+
+  .project-item:hover .project-title {
+    color: #cf03fc;
+  }
+
+  .project-item:hover .project-arrow {
+    transform: translate(4px, -4px);
+    opacity: 1;
+  }
+
+  .project-index {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.3;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .project-info {
+    min-width: 0;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0 0 0.25rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .project-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-color);
+    opacity: 0.4;
+    margin: 0;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-tag {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.625rem;
+    background: var(--hover-bg);
+    border-radius: 4px;
+    color: var(--text-color);
+    opacity: 0.6;
+  }
+
+  .project-arrow {
+    opacity: 0.3;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  .projects-cta {
+    margin-top: 3rem;
+    text-align: center;
   }
 
   .link-arrow {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2rem;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     transition: all 0.3s ease;
   }
@@ -382,24 +515,36 @@ const translatePath = useTranslatedPath(lang);
     transform: translateX(4px);
   }
 
+  /* Contact Section */
   .contact-section {
+    position: relative;
+    z-index: 1;
     min-height: 60vh;
+    display: flex;
+    align-items: center;
   }
 
-  .cta-group {
-    margin-top: 2rem;
+  .contact-content {
+    max-width: 500px;
+  }
+
+  .contact-text {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    margin: 0 0 2.5rem 0;
+    line-height: 1.85;
   }
 
   /* Footer */
   .site-footer {
     position: relative;
     z-index: 1;
-    padding: 3rem 2rem;
-    background: rgba(0, 0, 0, 0.03);
+    padding: 3rem 5vw;
     border-top: 1px solid var(--border-color);
   }
 
-  .footer-content {
+  .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -407,29 +552,62 @@ const translatePath = useTranslatedPath(lang);
     align-items: center;
   }
 
-  .footer-text {
+  .footer-name {
     font-size: 0.875rem;
     color: var(--text-color);
-    opacity: 0.6;
-    margin: 0;
+    opacity: 0.5;
+    font-weight: 500;
   }
 
-  .footer-copyright {
+  .footer-year {
     font-size: 0.75rem;
     color: var(--text-color);
-    opacity: 0.4;
-    margin: 0;
+    opacity: 0.3;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .project-item {
+      grid-template-columns: 40px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .project-tags,
+    .project-arrow {
+      display: none;
+    }
+
+    .about-content {
+      padding-left: 2rem;
+    }
   }
 
   @media (max-width: 768px) {
-    .hero-content {
-      padding: 0 1rem;
+    .hero-section {
+      padding: 6rem 1.5rem;
     }
 
-    .footer-content {
+    .name-last {
+      margin-left: 8%;
+    }
+
+    .section-inner {
+      padding: 5rem 1.5rem;
+    }
+
+    .about-content {
+      padding-left: 1.5rem;
+    }
+
+    .footer-inner {
       flex-direction: column;
       gap: 0.5rem;
       text-align: center;
+    }
+
+    .scroll-indicator {
+      left: 1.5rem;
     }
   }
 </style>
