@@ -19,92 +19,56 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'portfolio-v1',
+    id: 'tower-of-hanoi',
     title: {
-      en: 'Personal Portfolio v1',
-      cs: 'Osobní portfolio v1',
+      en: 'Tower of Hanoi',
+      cs: 'Hanojské věže',
     },
     description: {
-      en: 'My first portfolio website built with vanilla HTML, CSS, and JavaScript. Features responsive design and smooth animations.',
-      cs: 'Moje první portfolio postavené s vanilla HTML, CSS a JavaScriptem. Nabízí responzivní design a plynulé animace.',
+      en: 'Classic puzzle game implementation with interactive p5.js visualization. Features adjustable disk count and move tracking.',
+      cs: 'Klasická hračková implementace s interaktivní p5.js vizualizací. Nabízí nastavitelný počet disků a sledování tahů.',
     },
     category: 'frontend',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
-    liveUrl: '#',
-    repoUrl: '#',
+    tags: ['p5.js', 'JavaScript', 'Game', 'Algorithm'],
   },
   {
-    id: 'task-manager',
+    id: 'semafor-demo',
     title: {
-      en: 'Task Manager API',
-      cs: 'API správce úkolů',
+      en: 'Semafor Demo',
+      cs: 'Semafor Demo',
     },
     description: {
-      en: 'RESTful API for task management with authentication, authorization, and CRUD operations. Built with Node.js and Express.',
-      cs: 'RESTful API pro správu úkolů s autentifikací, autorizací a CRUD operacemi. Postaveno s Node.js a Express.',
-    },
-    category: 'backend',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-    repoUrl: '#',
-  },
-  {
-    id: 'ecommerce-platform',
-    title: {
-      en: 'E-commerce Platform',
-      cs: 'E-commerce platforma',
-    },
-    description: {
-      en: 'Full-stack e-commerce solution with shopping cart, payment integration, and admin dashboard. Built with React and Node.js.',
-      cs: 'Kompletní e-commerce řešení s nákupním košíkem, platební integrací a administrátorským panelem. Postaveno s React a Node.js.',
-    },
-    category: 'fullstack',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    liveUrl: '#',
-    repoUrl: '#',
-  },
-  {
-    id: 'cli-tool',
-    title: {
-      en: 'File Organizer CLI',
-      cs: 'CLI nástroj pro organizaci souborů',
-    },
-    description: {
-      en: 'Command-line tool to automatically organize files in directories based on file type, date, or custom rules.',
-      cs: 'Příkazový nástroj pro automatickou organizaci souborů do adresářů podle typu, data nebo vlastních pravidel.',
-    },
-    category: 'tools',
-    tags: ['Python', 'CLI', 'Automation'],
-    repoUrl: '#',
-  },
-  {
-    id: 'weather-dashboard',
-    title: {
-      en: 'Weather Dashboard',
-      cs: 'Dashboard počasí',
-    },
-    description: {
-      en: 'Interactive weather dashboard with location search, 7-day forecast, and beautiful visualizations using weather API.',
-      cs: 'Interaktivní dashboard počasí s vyhledáváním lokací, 7denní předpovědí a krásnými vizualizacemi pomocí weather API.',
+      en: 'Interactive semaphore alphabet visualizer using hand gesture recognition with ML5. Demonstrates letter communication through hand signs.',
+      cs: 'Interaktivní vizualizátor semaforové abecedy s rozpoznáváním gest rukou pomocí ML5. Demonstruje komunikaci písmen prostřednictvím znaků rukou.',
     },
     category: 'frontend',
-    tags: ['React', 'Weather API', 'Charts', 'Tailwind'],
-    liveUrl: '#',
-    repoUrl: '#',
+    tags: ['ML5', 'p5.js', 'Hand Gesture', 'Machine Learning'],
   },
   {
-    id: 'chat-application',
+    id: 'pathfinding',
     title: {
-      en: 'Real-time Chat App',
-      cs: 'Aplikace pro聊天 v reálném čase',
+      en: 'Pathfinding Visualizer',
+      cs: 'Vizualizátor hledání cest',
     },
     description: {
-      en: 'Full-stack chat application with real-time messaging, rooms, and user authentication using WebSocket.',
-      cs: 'Kompletní chatovací aplikace se zasíláním zpráv v reálném čase, místnostmi a autentifikací uživatelů pomocí WebSocket.',
+      en: 'Interactive pathfinding algorithm visualizer built with p5.js. Supports multiple algorithms for exploring navigation solutions.',
+      cs: 'Interaktivní vizualizátor algoritmů hledání cest postavený s p5.js. Podporuje více algoritmů pro prozkoumání řešení navigace.',
     },
-    category: 'fullstack',
-    tags: ['Socket.io', 'React', 'Redis', 'Express'],
-    liveUrl: '#',
-    repoUrl: '#',
+    category: 'frontend',
+    tags: ['p5.js', 'JavaScript', 'Algorithm', 'Visualization'],
+  },
+  {
+    id: 'tetris',
+    title: {
+      en: 'Tetris',
+      cs: 'Tetris',
+    },
+    description: {
+      en: 'Classic block-stacking puzzle game with score tracking, line clearing, and smooth controls. Pure JavaScript implementation.',
+      cs: 'Klasická skládačková hra s bodováním, mazáním řádků a plynulým ovládáním. Čistá JavaScript implementace.',
+    },
+    category: 'frontend',
+    tags: ['JavaScript', 'Game', 'HTML', 'CSS'],
   },
   {
     id: 'speechless',
