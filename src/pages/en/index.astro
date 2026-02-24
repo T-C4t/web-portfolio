@@ -9,6 +9,80 @@ const featuredProjects = projects.slice(0, 4);
 ---
 
 <Layout title="Richard Matečka">
+  <script>
+    // Scroll-reactive background
+    const bgAnimation = document.querySelector('.bg-animation');
+    const bgGradient1 = document.querySelector('.bg-gradient-1');
+    const bgGradient2 = document.querySelector('.bg-gradient-2');
+    
+    if (bgGradient1 && bgGradient2) {
+      let lastScrollY = 0;
+      let ticking = false;
+      
+      const updateGradients = () => {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+        const scrollProgress = scrollY / (docHeight - windowHeight);
+        
+        // Parallax effect - gradients move at different speeds
+        const moveX1 = scrollY * 0.15;
+        const moveY1 = scrollY * 0.1;
+        const moveX2 = scrollY * -0.1;
+        const moveY2 = scrollY * -0.08;
+        
+        // Scale effect based on scroll
+        const scale1 = 1 + scrollProgress * 0.3;
+        const scale2 = 1 + scrollProgress * 0.2;
+        
+        // Opacity fade based on scroll
+        const opacity1 = Math.max(0.15, 0.4 - scrollProgress * 0.25);
+        const opacity2 = Math.max(0.1, 0.4 - scrollProgress * 0.3);
+        
+        bgGradient1.style.transform = `translate(${moveX1}px, ${moveY1}px) scale(${scale1})`;
+        bgGradient2.style.transform = `translate(${moveX2}px, ${moveY2}px) scale(${scale2})`;
+        bgGradient1.style.opacity = opacity1;
+        bgGradient2.style.opacity = opacity2;
+        
+        ticking = false;
+      };
+      
+      const onScroll = () => {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+          requestAnimationFrame(updateGradients);
+          ticking = true;
+        }
+      };
+      
+      window.addEventListener('scroll', onScroll, { passive: true });
+      
+      // Initial position
+      updateGradients();
+    }
+  </script>
+  <script>
+    // Section reveal animation
+    const revealSections = document.querySelectorAll('.reveal');
+    
+    if (revealSections.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealSections.forEach(section => {
+        observer.observe(section);
+      });
+    }
+  </script>
   <div class="scroll-container">
     <!-- Animated Background -->
     <div class="bg-animation">
@@ -47,7 +121,7 @@ const featuredProjects = projects.slice(0, 4);
     </section>
 
     <!-- About Section -->
-    <section class="about-section">
+    <section class="about-section reveal">
       <div class="section-inner">
         <div class="section-header">
           <span class="section-number">01</span>
@@ -68,7 +142,7 @@ const featuredProjects = projects.slice(0, 4);
     </section>
 
     <!-- Projects Section -->
-    <section class="projects-section">
+    <section class="projects-section reveal">
       <div class="section-inner">
         <div class="section-header">
           <span class="section-number">02</span>
@@ -114,7 +188,7 @@ const featuredProjects = projects.slice(0, 4);
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section">
+    <section class="contact-section reveal">
       <div class="section-inner">
         <div class="section-header">
           <span class="section-number">03</span>
@@ -170,7 +244,7 @@ const featuredProjects = projects.slice(0, 4);
     border-radius: 50%;
     filter: blur(100px);
     opacity: 0.4;
-    animation: float 25s ease-in-out infinite;
+    /* Will be controlled by scroll JS */
   }
 
   .bg-gradient-1 {
@@ -179,7 +253,6 @@ const featuredProjects = projects.slice(0, 4);
     background: #cf03fc;
     top: -300px;
     left: -300px;
-    animation-delay: 0s;
   }
 
   .bg-gradient-2 {
@@ -188,19 +261,6 @@ const featuredProjects = projects.slice(0, 4);
     background: #9d03fc;
     bottom: -200px;
     right: -200px;
-    animation-delay: -12s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    33% {
-      transform: translate(80px, 50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-50px, 80px) scale(0.9);
-    }
   }
 
   .bg-noise {
@@ -376,6 +436,18 @@ const featuredProjects = projects.slice(0, 4);
     min-height: 70vh;
     display: flex;
     align-items: center;
+  }
+
+  /* Section reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .about-content {

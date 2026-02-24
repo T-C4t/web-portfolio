@@ -56,6 +56,20 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                border-color var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                color var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                backdrop-filter 0.3s ease;
+  }
+
+  .main-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  :global(.dark) .main-nav.scrolled {
+    background-color: rgba(26, 26, 26, 0.85);
   }
 
   .nav-container {
@@ -111,27 +125,40 @@ const navLinks = [
     align-items: center;
     justify-content: center;
     opacity: 0.7;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, color var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1));
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
-  .theme-toggle:hover {
-    opacity: 1;
+  .theme-toggle svg {
+    position: absolute;
+    transition: transform var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                opacity var(--transition-duration, 0.4s) var(--transition-ease, cubic-bezier(0.4, 0, 0.2, 1));
+  }
+
+  .theme-toggle:hover svg {
+    transform: rotate(15deg);
   }
 
   .sun-icon {
-    display: none;
+    opacity: 0;
+    transform: rotate(-90deg);
   }
 
   .moon-icon {
-    display: block;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 
   :global(.dark) .sun-icon {
-    display: block;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 
   :global(.dark) .moon-icon {
-    display: none;
+    opacity: 0;
+    transform: rotate(90deg);
   }
 
   @media (max-width: 768px) {
