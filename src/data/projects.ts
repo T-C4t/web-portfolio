@@ -1,3 +1,5 @@
+// Mini-projects hosted on Render - see render.yaml
+
 export type ProjectCategory = 'frontend' | 'backend' | 'fullstack' | 'tools' | 'portfolio';
 
 export interface Project {
