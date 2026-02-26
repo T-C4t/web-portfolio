@@ -22,22 +22,22 @@ const lang = 'cs';
       <div class="skills-grid">
         <div class="skill-category">
           <h3 class="category-title">Technické</h3>
-          <p class="skill-text">Webový vývoj s moderními frameworky a best practices.</p>
+          <p class="skill-text"><span class="skill-tag">Webový vývoj</span><span class="skill-tag">Moderní frameworky</span><span class="skill-tag">Best practices</span></p>
         </div>
 
         <div class="skill-category">
           <h3 class="category-title">Nástroje</h3>
-          <p class="skill-text">Tvorba interaktivních zážitků s pozorností k detailu.</p>
+          <p class="skill-text"><span class="skill-tag">Interaktivní zážitky</span><span class="skill-tag">Pozornost k detailu</span></p>
         </div>
 
         <div class="skill-category">
           <h3 class="category-title">Měkké dovednosti</h3>
-          <p class="skill-text">Řešení problémů a kreativní myšlení.</p>
+          <p class="skill-text"><span class="skill-tag">Řešení problémů</span><span class="skill-tag">Kreativní myšlení</span></p>
         </div>
 
         <div class="skill-category">
           <h3 class="category-title">Jazyky</h3>
-          <p class="skill-text">Angličtina (rodný), Čeština (rodný), Němčina (základy).</p>
+          <p class="skill-text"><span class="skill-tag">Angličtina (rodný)</span><span class="skill-tag">Čeština (rodný)</span><span class="skill-tag">Němčina (základy)</span></p>
         </div>
       </div>
     </section>
@@ -53,7 +53,7 @@ const lang = 'cs';
   }
 
   .resume-header {
-    text-align: left;
+    text-align: center;
     margin-bottom: 4rem;
     padding-bottom: 3rem;
     border-bottom: 1px solid var(--border-color);
@@ -82,7 +82,7 @@ const lang = 'cs';
     height: 1px;
     background: var(--text-color);
     opacity: 0.3;
-    margin: 0 0 1.5rem 0;
+    margin: 0 auto 1.5rem auto;
   }
 
   .resume-tagline {
@@ -176,6 +176,18 @@ const lang = 'cs';
     opacity: 0.6;
     line-height: 1.6;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.625rem;
+    background: var(--hover-bg);
+    border-radius: 4px;
+    color: var(--text-color);
+    opacity: 0.6;
   }
 
   @media (max-width: 768px) {
