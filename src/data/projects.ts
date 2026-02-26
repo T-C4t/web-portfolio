@@ -30,7 +30,7 @@ export const projects: Project[] = [
     },
     category: 'portfolio',
     tags: ['Astro', 'TypeScript', 'CSS', 'Bilingual', 'i18n'],
-    liveUrl: 'https://t-c4t.github.io/web-portfolio/',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/',
     repoUrl: 'https://github.com/T-C4t/web-portfolio',
   },
   {
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     category: 'frontend',
     tags: ['p5.js', 'JavaScript', 'Game', 'Visualization'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tower%20of%20hanoi',
-    liveUrl: 'https://t-c4t.github.io/tower-of-hanoi/',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/tower-of-hanoi/',
   },
   {
     id: 'semafor-demo',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     category: 'frontend',
     tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/semafor-demo',
-    liveUrl: 'https://t-c4t.github.io/semafor-demo/',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/semafor-demo/',
   },
   {
     id: 'pathfinding-visualizer',
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     category: 'frontend',
     tags: ['p5.js', 'JavaScript', 'Algorithm', 'Dijkstra'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/pathfinding',
-    liveUrl: 'https://t-c4t.github.io/pathfinding-visualizer/',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/pathfinding/',
   },
   {
     id: 'tetris',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     category: 'frontend',
     tags: ['JavaScript', 'Game', 'Classic'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tetris',
-    liveUrl: 'https://t-c4t.github.io/tetris-game/',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/tetris/',
   },
 ];
 
