@@ -196,33 +196,43 @@ const emailUrl = 'mailto:richard@example.com';
   }
 
   .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    position: relative;
   }
 
   .form-group label {
-    font-size: 0.875rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-color);
+    opacity: 0.6;
+    transform: translateY(0);
+    transition: opacity 0.2s ease;
   }
 
   .form-group input,
   .form-group textarea {
-    padding: 0.875rem;
+    padding: 1.25rem 0.875rem 0.875rem;
     font-size: 0.9375rem;
     font-family: inherit;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     background: var(--bg-color);
     color: var(--text-color);
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
     border-color: var(--text-color);
+    box-shadow: 0 0 0 3px rgba(207, 3, 252, 0.15);
+  }
+
+  .form-group input:focus + label,
+  .form-group textarea:focus + label {
+    opacity: 1;
   }
 
   .form-group textarea {
