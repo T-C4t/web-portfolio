@@ -61,6 +61,67 @@ export const projects: Project[] = [
     tags: ['Python', 'Automation', 'Voice Control'],
     repoUrl: 'https://github.com/T-C4t/speechless',
   },
+  // Mini Projects
+  {
+    id: 'tower-of-hanoi',
+    title: {
+      en: 'Tower of Hanoi',
+      cs: 'Věže Hanoi',
+    },
+    description: {
+      en: 'Classic puzzle game with interactive visualization. Solve the puzzle by moving all disks from one peg to another following the rules.',
+      cs: 'Klasická logická hra s interaktivní vizualizací. Vyřešte puzzle přesunutím všech disků z jednoho kolíku na druhý podle pravidel.',
+    },
+    category: 'frontend',
+    tags: ['p5.js', 'JavaScript', 'Game', 'Visualization'],
+    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tower%20of%20hanoi',
+    liveUrl: 'https://t-c4t.github.io/tower-of-hanoi/',
+  },
+  {
+    id: 'semafor-demo',
+    title: {
+      en: 'Semafor Demo',
+      cs: 'Semafor Demo',
+    },
+    description: {
+      en: 'Interactive semaphore alphabet visualizer using hand gesture recognition with ML5. Draw letters in the air and see them converted to semaphore code.',
+      cs: 'Interaktivní vizualizátor semaforové abecedy s rozpoznáváním gest rukou pomocí ML5. Kreslete písmena ve vzduchu a sledujte jejich převod do semaforového kódu.',
+    },
+    category: 'frontend',
+    tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
+    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/semafor-demo',
+    liveUrl: 'https://t-c4t.github.io/semafor-demo/',
+  },
+  {
+    id: 'pathfinding-visualizer',
+    title: {
+      en: 'Pathfinding Visualizer',
+      cs: 'Vizualizátor hledání cesty',
+    },
+    description: {
+      en: 'Visualize pathfinding algorithms in action. Watch Dijkstra\'s algorithm find the shortest path in real-time.',
+      cs: 'Vizualizace algoritmů hledání cesty v akci. Sledujte Dijkstrův algoritmus najít nejkratší cestu v reálném čase.',
+    },
+    category: 'frontend',
+    tags: ['p5.js', 'JavaScript', 'Algorithm', 'Dijkstra'],
+    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/pathfinding',
+    liveUrl: 'https://t-c4t.github.io/pathfinding-visualizer/',
+  },
+  {
+    id: 'tetris',
+    title: {
+      en: 'Tetris',
+      cs: 'Tetris',
+    },
+    description: {
+      en: 'Classic block-stacking puzzle game. Rotate and place falling blocks to clear lines.',
+      cs: 'Klasická hra s skládáním bloků. Otáčejte a umisťujte padající bloky pro vyčištění řádků.',
+    },
+    category: 'frontend',
+    tags: ['JavaScript', 'Game', 'Classic'],
+    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tetris',
+    liveUrl: 'https://t-c4t.github.io/tetris-game/',
+  },
 ];
 
 export const categories: { id: ProjectCategory; label: { en: string; cs: string } }[] = [
