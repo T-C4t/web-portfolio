@@ -104,6 +104,7 @@ const emailUrl = 'mailto:richard@example.com';
     padding: 4rem 2rem;
     max-width: 900px;
     margin: 0 auto;
+    background-color: var(--bg-color);
   }
 
   .contact-header {
@@ -118,21 +119,22 @@ const emailUrl = 'mailto:richard@example.com';
     color: var(--text-color);
     opacity: 0.5;
     margin: 0 0 1rem 0;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .page-title {
     font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 300;
+    font-weight: 700;
     margin: 0 0 1.5rem 0;
     color: var(--text-color);
     letter-spacing: -0.02em;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .page-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--text-color);
-    opacity: 0.3;
+    width: 80px;
+    height: 4px;
+    background: #FF6F61;
     margin: 0 auto 1.5rem auto;
   }
 
@@ -144,6 +146,7 @@ const emailUrl = 'mailto:richard@example.com';
     margin: 0;
     max-width: 500px;
     margin: 0 auto;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .contact-container {
@@ -156,10 +159,11 @@ const emailUrl = 'mailto:richard@example.com';
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 1.5rem 0;
     color: var(--text-color);
     opacity: 0.6;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .social-links {
@@ -175,24 +179,29 @@ const emailUrl = 'mailto:richard@example.com';
     padding: 0.875rem 1rem;
     text-decoration: none;
     color: var(--text-color);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    transition: all 0.25s ease;
+    border: 4px solid #4A4E69;
+    border-radius: 0;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    transition: none;
   }
 
   .social-link:hover {
-    border-color: var(--text-color);
+    background: #4A4E69;
+    color: var(--bg-color);
   }
 
   .social-link span {
     font-size: 0.9375rem;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    padding: 2rem;
+    border: 4px solid #4A4E69;
+    box-shadow: 6px 6px 0 #4A4E69;
   }
 
   .form-group {
@@ -204,30 +213,31 @@ const emailUrl = 'mailto:richard@example.com';
     top: 0;
     left: 0;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-color);
     opacity: 0.6;
     transform: translateY(0);
-    transition: opacity 0.2s ease;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .form-group input,
   .form-group textarea {
     padding: 1.25rem 0.875rem 0.875rem;
     font-size: 0.9375rem;
-    font-family: inherit;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    border: 4px solid #4A4E69;
+    border-radius: 0;
     background: var(--bg-color);
     color: var(--text-color);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
-    border-color: var(--text-color);
-    box-shadow: 0 0 0 3px rgba(207, 3, 252, 0.15);
+    border-color: #FF6F61;
+    box-shadow: 4px 4px 0 #FF6F61;
   }
 
   .form-group input:focus + label,
@@ -243,18 +253,21 @@ const emailUrl = 'mailto:richard@example.com';
   .submit-btn {
     padding: 1rem 1.5rem;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 700;
     background: var(--text-color);
     color: var(--bg-color);
-    border: none;
-    border-radius: 4px;
+    border: 4px solid var(--text-color);
+    border-radius: 0;
     cursor: pointer;
-    transition: all 0.25s ease;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    box-shadow: 6px 6px 0 #4A4E69;
+    transition: none;
     align-self: flex-start;
   }
 
   .submit-btn:hover {
-    opacity: 0.9;
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #4A4E69;
   }
 
   @media (max-width: 768px) {

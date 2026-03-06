@@ -9,211 +9,125 @@ const featuredProjects = projects.slice(0, 4);
 ---
 
 <Layout title="Richard Matečka">
-  <script>
-    // Scroll-reactive background
-    const bgAnimation = document.querySelector('.bg-animation');
-    const bgGradient1 = document.querySelector('.bg-gradient-1');
-    const bgGradient2 = document.querySelector('.bg-gradient-2');
-    
-    if (bgGradient1 && bgGradient2) {
-      let lastScrollY = 0;
-      let ticking = false;
-      
-      const updateGradients = () => {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const docHeight = document.documentElement.scrollHeight;
-        const scrollProgress = scrollY / (docHeight - windowHeight);
-        
-        // Parallax effect - gradients move at different speeds
-        const moveX1 = scrollY * 0.15;
-        const moveY1 = scrollY * 0.1;
-        const moveX2 = scrollY * -0.1;
-        const moveY2 = scrollY * -0.08;
-        
-        // Scale effect based on scroll
-        const scale1 = 1 + scrollProgress * 0.3;
-        const scale2 = 1 + scrollProgress * 0.2;
-        
-        // Opacity fade based on scroll
-        const opacity1 = Math.max(0.15, 0.4 - scrollProgress * 0.25);
-        const opacity2 = Math.max(0.1, 0.4 - scrollProgress * 0.3);
-        
-        bgGradient1.style.transform = `translate(${moveX1}px, ${moveY1}px) scale(${scale1})`;
-        bgGradient2.style.transform = `translate(${moveX2}px, ${moveY2}px) scale(${scale2})`;
-        bgGradient1.style.opacity = opacity1;
-        bgGradient2.style.opacity = opacity2;
-        
-        ticking = false;
-      };
-      
-      const onScroll = () => {
-        lastScrollY = window.scrollY;
-        if (!ticking) {
-          requestAnimationFrame(updateGradients);
-          ticking = true;
-        }
-      };
-      
-      window.addEventListener('scroll', onScroll, { passive: true });
-      
-      // Initial position
-      updateGradients();
-    }
-  </script>
-  <script>
-    // Section reveal animation
-    const revealSections = document.querySelectorAll('.reveal');
-    
-    if (revealSections.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-      
-      revealSections.forEach(section => {
-        observer.observe(section);
-      });
-    }
-  </script>
-  <div class="scroll-container">
-    <!-- Animated Background -->
-    <div class="bg-animation">
-      <div class="bg-gradient bg-gradient-1"></div>
-      <div class="bg-gradient bg-gradient-2"></div>
-      <div class="bg-noise"></div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="hero-text">
-          <p class="hero-label">Portfolio</p>
-          <h1 class="hero-name">
-            <span class="name-first">Richard</span>
-            <span class="name-last">Matečka</span>
-          </h1>
-          <div class="hero-divider"></div>
-          <p class="hero-tagline">
-            Creative developer focused on building interactive experiences
-            and exploring the intersection of design and technology.
-          </p>
-          <div class="hero-cta">
-            <a href={translatePath('/projects')} class="btn btn-primary">
-              View Projects
-            </a>
-            <a href={translatePath('/contact')} class="btn btn-secondary">
-              Get in Touch
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="scroll-indicator">
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section reveal">
-      <div class="section-inner">
-        <div class="section-header">
-          <span class="section-number">01</span>
-          <h2 class="section-title">About</h2>
-        </div>
-        <div class="about-content">
-          <p class="about-text">
-            I'm a developer based in Prague, passionate about creating
-            meaningful digital experiences. My work spans across web development,
-            interactive visualizations, and creative coding projects.
-          </p>
-          <p class="about-text">
-            When I'm not coding, you can find me working on personal projects,
-            experimenting with new technologies, or contributing to open source.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section reveal">
-      <div class="section-inner">
-        <div class="section-header">
-          <span class="section-number">02</span>
-          <h2 class="section-title">Selected Work</h2>
-        </div>
-        
-        <div class="projects-grid">
-          {featuredProjects.map((project, index) => (
-            <a 
-              href={project.repoUrl || project.liveUrl || '#'} 
-              class="project-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="project-index">{String(index + 1).padStart(2, '0')}</div>
-              <div class="project-info">
-                <h3 class="project-title">{project.title[lang]}</h3>
-                <p class="project-category">{project.category}</p>
-              </div>
-              <div class="project-tags">
-                {project.tags.slice(0, 3).map(tag => (
-                  <span class="project-tag">{tag}</span>
-                ))}
-              </div>
-              <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-          ))}
-        </div>
-
-        <div class="projects-cta">
-          <a href={translatePath('/projects')} class="link-arrow">
-            View All Projects
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-label">Portfolio</p>
+        <h1 class="hero-name">
+          <span class="name-first">Richard</span>
+          <span class="name-last">Matečka</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">
+          Creative developer focused on building interactive experiences
+          and exploring the intersection of design and technology.
+        </p>
+        <div class="hero-cta">
+          <a href={translatePath('/projects')} class="btn btn-primary">
+            View Projects
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section reveal">
-      <div class="section-inner">
-        <div class="section-header">
-          <span class="section-number">03</span>
-          <h2 class="section-title">Let's Connect</h2>
-        </div>
-        <div class="contact-content">
-          <p class="contact-text">
-            Have a project in mind or just want to chat? I'm always open to
-            discussing new opportunities and ideas.
-          </p>
-          <a href={translatePath('/contact')} class="btn btn-primary">
+          <a href={translatePath('/contact')} class="btn btn-secondary">
             Get in Touch
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <span class="footer-name">Richard Matečka</span>
-        <span class="footer-year">© 2026</span>
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About</h2>
       </div>
-    </footer>
-  </div>
+      <div class="about-content">
+        <p class="about-text">
+          I'm a developer based in Prague, passionate about creating
+          meaningful digital experiences. My work spans across web development,
+          interactive visualizations, and creative coding projects.
+        </p>
+        <p class="about-text">
+          When I'm not coding, you can find me working on personal projects,
+          experimenting with new technologies, or contributing to open source.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Selected Work</h2>
+      </div>
+      
+      <div class="projects-grid">
+        {featuredProjects.map((project, index) => (
+          <a 
+            href={project.repoUrl || project.liveUrl || '#'} 
+            class="project-item"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="project-index">{String(index + 1).padStart(2, '0')}</div>
+            <div class="project-info">
+              <h3 class="project-title">{project.title[lang]}</h3>
+              <p class="project-category">{project.category}</p>
+            </div>
+            <div class="project-tags">
+              {project.tags.slice(0, 3).map(tag => (
+                <span class="project-tag">{tag}</span>
+              ))}
+            </div>
+            <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        ))}
+      </div>
+
+      <div class="projects-cta">
+        <a href={translatePath('/projects')} class="link-arrow">
+          View All Projects
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+      <div class="contact-content">
+        <p class="contact-text">
+          Have a project in mind or just want to chat? I'm always open to
+          discussing new opportunities and ideas.
+        </p>
+        <a href={translatePath('/contact')} class="btn btn-primary">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-name">Richard Matečka</span>
+      <span class="footer-year">© 2026</span>
+    </div>
+  </footer>
 </Layout>
 
 <style>
@@ -223,64 +137,14 @@ const featuredProjects = projects.slice(0, 4);
     overflow-x: hidden;
   }
 
-  .scroll-container {
-    position: relative;
-  }
-
-  /* Animated Background */
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .bg-gradient {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.4;
-    /* Will be controlled by scroll JS */
-  }
-
-  .bg-gradient-1 {
-    width: 800px;
-    height: 800px;
-    background: #cf03fc;
-    top: -300px;
-    left: -300px;
-  }
-
-  .bg-gradient-2 {
-    width: 600px;
-    height: 600px;
-    background: #9d03fc;
-    bottom: -200px;
-    right: -200px;
-  }
-
-  .bg-noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.02;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
-
   /* Hero Section */
   .hero-section {
     position: relative;
-    z-index: 1;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 8rem 5vw;
+    background-color: var(--bg-color);
   }
 
   .hero-content {
@@ -301,6 +165,7 @@ const featuredProjects = projects.slice(0, 4);
     opacity: 0.5;
     margin: 0 0 2rem 0;
     font-weight: 500;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .hero-name {
@@ -314,6 +179,7 @@ const featuredProjects = projects.slice(0, 4);
     font-size: clamp(4.5rem, 14vw, 10rem);
     color: var(--text-color);
     letter-spacing: -0.03em;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .name-last {
@@ -323,12 +189,13 @@ const featuredProjects = projects.slice(0, 4);
     letter-spacing: -0.03em;
     margin-left: 15%;
     opacity: 0.6;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .hero-divider {
     width: 80px;
-    height: 1px;
-    background: #cf03fc;
+    height: 4px;
+    background: #FF6F61;
     margin: 0 0 2.5rem 0;
   }
 
@@ -339,6 +206,7 @@ const featuredProjects = projects.slice(0, 4);
     margin: 0 0 3rem 0;
     line-height: 1.8;
     max-width: 480px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .hero-cta {
@@ -349,59 +217,40 @@ const featuredProjects = projects.slice(0, 4);
 
   .btn {
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: 0;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 0.9375rem;
     letter-spacing: 0.01em;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    transition: none;
   }
 
   .btn-primary {
     background: var(--text-color);
     color: var(--bg-color);
-    border: none;
+    border: 4px solid var(--text-color);
+    box-shadow: 6px 6px 0 #4A4E69;
   }
 
   .btn-primary:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #4A4E69;
   }
 
   .btn-secondary {
     background: transparent;
     color: var(--text-color);
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: 4px solid #4A4E69;
   }
 
   .btn-secondary:hover {
-    border-color: var(--text-color);
-  }
-
-  html.dark .btn-secondary {
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .scroll-indicator {
-    position: absolute;
-    bottom: 3rem;
-    left: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, var(--text-color), transparent);
-    opacity: 0.2;
+    background: #4A4E69;
+    color: var(--bg-color);
   }
 
   /* Section Styles */
   .section-inner {
-    position: relative;
-    z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
     padding: 8rem 5vw;
@@ -416,9 +265,9 @@ const featuredProjects = projects.slice(0, 4);
 
   .section-number {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: #cf03fc;
-    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: 700;
+    color: #FF6F61;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .section-title {
@@ -427,33 +276,21 @@ const featuredProjects = projects.slice(0, 4);
     margin: 0;
     color: var(--text-color);
     letter-spacing: -0.02em;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   /* About Section */
   .about-section {
-    position: relative;
-    z-index: 1;
     min-height: 70vh;
     display: flex;
     align-items: center;
-  }
-
-  /* Section reveal animation */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
+    background-color: var(--bg-color);
   }
 
   .about-content {
     max-width: 600px;
     padding-left: 4rem;
-    border-left: 1px solid var(--border-color);
+    border-left: 4px solid #4A4E69;
   }
 
   .about-text {
@@ -462,6 +299,7 @@ const featuredProjects = projects.slice(0, 4);
     opacity: 0.65;
     margin: 0 0 1.5rem 0;
     line-height: 1.85;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .about-text:last-child {
@@ -470,19 +308,16 @@ const featuredProjects = projects.slice(0, 4);
 
   /* Projects Section */
   .projects-section {
-    position: relative;
-    z-index: 1;
     min-height: 100vh;
+    background-color: var(--bg-color);
   }
 
   .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    background: var(--border-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    overflow: hidden;
+    gap: 0;
+    background: #4A4E69;
+    border: 4px solid #4A4E69;
   }
 
   .project-item {
@@ -493,15 +328,19 @@ const featuredProjects = projects.slice(0, 4);
     padding: 2rem 2.5rem;
     background: var(--bg-color);
     text-decoration: none;
-    transition: all 0.3s ease;
+    border-bottom: 2px solid #4A4E69;
+  }
+
+  .project-item:last-child {
+    border-bottom: none;
   }
 
   .project-item:hover {
-    background: rgba(207, 3, 252, 0.03);
+    background: rgba(255, 111, 97, 0.1);
   }
 
   .project-item:hover .project-title {
-    color: #cf03fc;
+    color: #FF6F61;
   }
 
   .project-item:hover .project-arrow {
@@ -511,10 +350,10 @@ const featuredProjects = projects.slice(0, 4);
 
   .project-index {
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-color);
     opacity: 0.3;
-    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .project-info {
@@ -523,10 +362,10 @@ const featuredProjects = projects.slice(0, 4);
 
   .project-title {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-color);
     margin: 0 0 0.25rem 0;
-    transition: color 0.3s ease;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .project-category {
@@ -536,6 +375,7 @@ const featuredProjects = projects.slice(0, 4);
     color: var(--text-color);
     opacity: 0.4;
     margin: 0;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .project-tags {
@@ -547,16 +387,16 @@ const featuredProjects = projects.slice(0, 4);
   .project-tag {
     font-size: 0.6875rem;
     padding: 0.25rem 0.625rem;
-    background: var(--hover-bg);
-    border-radius: 4px;
-    color: var(--text-color);
-    opacity: 0.6;
+    background: #4A4E69;
+    border-radius: 0;
+    color: var(--bg-color);
+    opacity: 1;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .project-arrow {
     opacity: 0.3;
     color: var(--text-color);
-    transition: all 0.3s ease;
   }
 
   .projects-cta {
@@ -571,12 +411,12 @@ const featuredProjects = projects.slice(0, 4);
     color: var(--text-color);
     text-decoration: none;
     font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .link-arrow:hover {
-    color: #cf03fc;
+    color: #FF6F61;
   }
 
   .link-arrow svg {
@@ -589,11 +429,10 @@ const featuredProjects = projects.slice(0, 4);
 
   /* Contact Section */
   .contact-section {
-    position: relative;
-    z-index: 1;
     min-height: 60vh;
     display: flex;
     align-items: center;
+    background-color: var(--bg-color);
   }
 
   .contact-content {
@@ -606,14 +445,13 @@ const featuredProjects = projects.slice(0, 4);
     opacity: 0.6;
     margin: 0 0 2.5rem 0;
     line-height: 1.85;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   /* Footer */
   .site-footer {
-    position: relative;
-    z-index: 1;
     padding: 3rem 5vw;
-    border-top: 1px solid var(--border-color);
+    border-top: 4px solid #4A4E69;
   }
 
   .footer-inner {
@@ -628,13 +466,15 @@ const featuredProjects = projects.slice(0, 4);
     font-size: 0.875rem;
     color: var(--text-color);
     opacity: 0.5;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .footer-year {
     font-size: 0.75rem;
     color: var(--text-color);
     opacity: 0.3;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   /* Responsive */
@@ -676,10 +516,6 @@ const featuredProjects = projects.slice(0, 4);
       flex-direction: column;
       gap: 0.5rem;
       text-align: center;
-    }
-
-    .scroll-indicator {
-      left: 1.5rem;
     }
   }
 </style>

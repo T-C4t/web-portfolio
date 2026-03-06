@@ -50,13 +50,14 @@ const lang = 'en';
     max-width: 800px;
     margin: 0 auto;
     padding: 4rem 2rem;
+    background-color: var(--bg-color);
   }
 
   .resume-header {
     text-align: center;
     margin-bottom: 4rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 4px solid #4A4E69;
   }
 
   .resume-label {
@@ -66,22 +67,23 @@ const lang = 'en';
     color: var(--text-color);
     opacity: 0.5;
     margin: 0 0 1rem 0;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .resume-name {
     font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 300;
+    font-weight: 700;
     margin: 0 0 1.5rem 0;
     color: var(--text-color);
     letter-spacing: -0.02em;
     line-height: 1.1;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .resume-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--text-color);
-    opacity: 0.3;
+    width: 80px;
+    height: 4px;
+    background: #FF6F61;
     margin: 0 auto 1.5rem auto;
   }
 
@@ -92,20 +94,25 @@ const lang = 'en';
     line-height: 1.7;
     margin: 0;
     max-width: 500px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .resume-section {
     margin-bottom: 4rem;
+    padding: 2rem;
+    border: 4px solid #4A4E69;
+    box-shadow: 6px 6px 0 #4A4E69;
   }
 
   .section-title {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 2rem 0;
     color: var(--text-color);
     opacity: 0.6;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .experience-item,
@@ -125,9 +132,10 @@ const lang = 'en';
   .job-title,
   .degree {
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 700;
     margin: 0;
     color: var(--text-color);
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .company,
@@ -135,12 +143,14 @@ const lang = 'en';
     font-weight: 400;
     color: var(--text-color);
     opacity: 0.7;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .period {
     font-size: 0.875rem;
     color: var(--text-color);
     opacity: 0.5;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .experience-description,
@@ -151,6 +161,7 @@ const lang = 'en';
     opacity: 0.75;
     line-height: 1.7;
     max-width: 650px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .skills-grid {
@@ -165,9 +176,10 @@ const lang = 'en';
 
   .category-title {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 700;
     margin: 0 0 0.75rem 0;
     color: var(--text-color);
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   .skill-text {
@@ -184,10 +196,11 @@ const lang = 'en';
   .skill-tag {
     font-size: 0.6875rem;
     padding: 0.25rem 0.625rem;
-    background: var(--hover-bg);
-    border-radius: 4px;
-    color: var(--text-color);
-    opacity: 0.6;
+    background: #4A4E69;
+    border-radius: 0;
+    color: var(--bg-color);
+    opacity: 1;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
   }
 
   @media (max-width: 768px) {
