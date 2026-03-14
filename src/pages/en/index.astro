@@ -194,8 +194,8 @@ const featuredProjects = projects.slice(0, 4);
 
   .hero-divider {
     width: 80px;
-    height: 4px;
-    background: #FF6F61;
+    height: 6px;
+    background: #ffe047;
     margin: 0 0 2.5rem 0;
   }
 
@@ -227,26 +227,28 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .btn-primary {
-    background: var(--text-color);
-    color: var(--bg-color);
-    border: 4px solid var(--text-color);
-    box-shadow: 6px 6px 0 #4A4E69;
+    background: #3d0066;
+    color: #ffe047;
+    border: 4px solid #3d0066;
+    box-shadow: 6px 6px 0 #ffe047;
   }
 
   .btn-primary:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0 #4A4E69;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #ffe047;
   }
 
   .btn-secondary {
     background: transparent;
-    color: var(--text-color);
-    border: 4px solid #4A4E69;
+    color: #3d0066;
+    border: 4px solid #3d0066;
+    box-shadow: 6px 6px 0 #c670ff;
   }
 
   .btn-secondary:hover {
-    background: #4A4E69;
-    color: var(--bg-color);
+    background: #3d0066;
+    color: #ffe047;
+    box-shadow: 3px 3px 0 #c670ff;
   }
 
   /* Section Styles */
@@ -264,10 +266,12 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .section-number {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    color: #FF6F61;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    color: #c670ff;
+    font-family: var(--font-mono);
+    background: #3d0066;
+    padding: 0.25rem 0.625rem;
   }
 
   .section-title {
@@ -290,7 +294,7 @@ const featuredProjects = projects.slice(0, 4);
   .about-content {
     max-width: 600px;
     padding-left: 4rem;
-    border-left: 4px solid #4A4E69;
+    border-left: 6px solid #3d0066;
   }
 
   .about-text {
@@ -316,8 +320,8 @@ const featuredProjects = projects.slice(0, 4);
     display: flex;
     flex-direction: column;
     gap: 0;
-    background: #4A4E69;
-    border: 4px solid #4A4E69;
+    background: #3d0066;
+    border: 4px solid #3d0066;
   }
 
   .project-item {
@@ -326,9 +330,9 @@ const featuredProjects = projects.slice(0, 4);
     align-items: center;
     gap: 2rem;
     padding: 2rem 2.5rem;
-    background: var(--bg-color);
+    background: #eec7fc;
     text-decoration: none;
-    border-bottom: 2px solid #4A4E69;
+    border-bottom: 2px solid #3d0066;
   }
 
   .project-item:last-child {
@@ -336,11 +340,11 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .project-item:hover {
-    background: rgba(255, 111, 97, 0.1);
+    background: #ffe047;
   }
 
   .project-item:hover .project-title {
-    color: #FF6F61;
+    color: #3d0066;
   }
 
   .project-item:hover .project-arrow {
@@ -387,11 +391,13 @@ const featuredProjects = projects.slice(0, 4);
   .project-tag {
     font-size: 0.6875rem;
     padding: 0.25rem 0.625rem;
-    background: #4A4E69;
+    background: #3d0066;
     border-radius: 0;
-    color: var(--bg-color);
+    color: #ffe047;
     opacity: 1;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
   }
 
   .project-arrow {
@@ -416,7 +422,7 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .link-arrow:hover {
-    color: #FF6F61;
+    color: #c670ff;
   }
 
   .link-arrow svg {
@@ -451,7 +457,8 @@ const featuredProjects = projects.slice(0, 4);
   /* Footer */
   .site-footer {
     padding: 3rem 5vw;
-    border-top: 4px solid #4A4E69;
+    border-top: 5px solid #3d0066;
+    background: #3d0066;
   }
 
   .footer-inner {
@@ -464,17 +471,15 @@ const featuredProjects = projects.slice(0, 4);
 
   .footer-name {
     font-size: 0.875rem;
-    color: var(--text-color);
-    opacity: 0.5;
+    color: #ffe047;
     font-weight: 700;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-family: var(--font-mono);
   }
 
   .footer-year {
     font-size: 0.75rem;
-    color: var(--text-color);
-    opacity: 0.3;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    color: #c670ff;
+    font-family: var(--font-mono);
   }
 
   /* Responsive */

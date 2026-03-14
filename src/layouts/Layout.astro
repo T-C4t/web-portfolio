@@ -58,12 +58,22 @@ const lang = getLangFromUrl(Astro.url);
 </html>
 
 <style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
   :root {
-    --bg-color: #FFF3E0;
-    --text-color: #2D2A26;
-    --accent-color: #FF7A59;
-    --border-color: #2D2A26;
-    --hover-bg: rgba(45, 42, 38, 0.1);
+    --bg-color: #eec7fc;
+    --bg-alt: #3d0066;
+    --text-color: #3d0066;
+    --text-on-dark: #eec7fc;
+    --accent: #ffe047;
+    --accent-bright: #ffce1f;
+    --purple-light: #c670ff;
+    --border-color: #3d0066;
+    --border-width: 4px;
+    --shadow-offset: 6px;
+    --shadow-color: #3d0066;
+    --hover-bg: rgba(61, 0, 102, 0.08);
+    --font-mono: 'Space Mono', 'Courier New', monospace;
   }
 
   * {
@@ -71,7 +81,7 @@ const lang = getLangFromUrl(Astro.url);
   }
 
   html {
-    font-family: 'Courier New', 'IBM Plex Mono', 'Fira Code', monospace;
+    font-family: var(--font-mono);
     background-color: var(--bg-color);
     color: var(--text-color);
   }
@@ -89,5 +99,11 @@ const lang = getLangFromUrl(Astro.url);
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
+  }
+
+  /* Global selection highlight */
+  ::selection {
+    background: var(--accent);
+    color: var(--border-color);
   }
 </style>

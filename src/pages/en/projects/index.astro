@@ -112,8 +112,8 @@ const lang = 'en';
 
   .page-divider {
     width: 80px;
-    height: 4px;
-    background: #FF6F61;
+    height: 6px;
+    background: #ffe047;
     margin: 0 auto 1.5rem auto;
   }
 
@@ -139,23 +139,26 @@ const lang = 'en';
     font-size: 0.8rem;
     font-weight: 700;
     background: transparent;
-    border: 4px solid #4A4E69;
+    border: 4px solid #3d0066;
     border-radius: 0;
-    color: var(--text-color);
+    color: #3d0066;
     cursor: pointer;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-family: var(--font-mono);
     transition: none;
+    box-shadow: 4px 4px 0 #3d0066;
   }
 
   .filter-btn:hover {
-    background: #4A4E69;
-    color: var(--bg-color);
+    background: #3d0066;
+    color: #ffe047;
+    box-shadow: 2px 2px 0 #3d0066;
   }
 
   .filter-btn.active {
-    background: #FF6F61;
-    border-color: #FF6F61;
-    color: var(--bg-color);
+    background: #3d0066;
+    border-color: #3d0066;
+    color: #ffe047;
+    box-shadow: none;
   }
 
   .projects-grid {
