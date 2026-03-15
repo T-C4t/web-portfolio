@@ -21,6 +21,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'speechless',
+    title: {
+      en: 'Speechless',
+      cs: 'Speechless',
+    },
+    description: {
+      en: 'Machine learning application for hands-free computer control via air writing and voice interactions.',
+      cs: 'Aplikace strojového učení pro ovládání počítače bez použití rukou pomocí psaní vzduchem a hlasových interakcí.',
+    },
+    category: 'tools',
+    tags: ['Python', 'Machine Learning', 'Air Writing', 'Voice Control'],
+    repoUrl: 'https://github.com/T-C4t/speechless',
+  },
+  {
+    id: 'semafor-demo',
+    title: {
+      en: 'Semafor Demo',
+      cs: 'Semafor Demo',
+    },
+    description: {
+      en: 'Interactive semaphore alphabet visualizer using hand gesture recognition with ML5. Draw letters in the air and see them converted to semaphore code.',
+      cs: 'Interaktivní vizualizátor semaforové abecedy s rozpoznáváním gest rukou pomocí ML5. Kreslete písmena ve vzduchu a sledujte jejich převod do semaforového kódu.',
+    },
+    category: 'frontend',
+    tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
+    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/semafor-demo',
+    liveUrl: 'https://web-portfolio-k3id.onrender.com/semafor-demo/',
+  },
+  {
     id: 'web-portfolio',
     title: {
       en: 'Web Portfolio',
@@ -50,21 +79,6 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/T-C4t/IBO-PORG-CS',
   },
   {
-    id: 'speechless',
-    title: {
-      en: 'Speechless',
-      cs: 'Speechless',
-    },
-    description: {
-      en: 'Python automation tool for hands-free computer control. Enables voice-controlled interactions with system functions.',
-      cs: 'Python nástroj pro automatizaci bez použití rukou. Umožňuje hlasové ovládání systémových funkcí.',
-    },
-    category: 'tools',
-    tags: ['Python', 'Automation', 'Voice Control'],
-    repoUrl: 'https://github.com/T-C4t/speechless',
-  },
-  // Mini Projects
-  {
     id: 'tower-of-hanoi',
     title: {
       en: 'Tower of Hanoi',
@@ -78,21 +92,6 @@ export const projects: Project[] = [
     tags: ['p5.js', 'JavaScript', 'Game', 'Visualization'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tower%20of%20hanoi',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/tower-of-hanoi/',
-  },
-  {
-    id: 'semafor-demo',
-    title: {
-      en: 'Semafor Demo',
-      cs: 'Semafor Demo',
-    },
-    description: {
-      en: 'Interactive semaphore alphabet visualizer using hand gesture recognition with ML5. Draw letters in the air and see them converted to semaphore code.',
-      cs: 'Interaktivní vizualizátor semaforové abecedy s rozpoznáváním gest rukou pomocí ML5. Kreslete písmena ve vzduchu a sledujte jejich převod do semaforového kódu.',
-    },
-    category: 'frontend',
-    tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
-    repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/semafor-demo',
-    liveUrl: 'https://web-portfolio-k3id.onrender.com/semafor-demo/',
   },
   {
     id: 'pathfinding-visualizer',
@@ -123,7 +122,7 @@ export const projects: Project[] = [
     tags: ['JavaScript', 'Game', 'Classic'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tetris',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/tetris/',
-  },
+  }
 ];
 
 export const categories: { id: ProjectCategory; label: { en: string; cs: string } }[] = [
