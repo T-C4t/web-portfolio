@@ -61,18 +61,19 @@ const lang = getLangFromUrl(Astro.url);
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
   :root {
-    --bg-color: #eec7fc;
-    --bg-alt: #3d0066;
+    --bg-color: #f5e8ff;
+    --bg-alt: #4a0080;
+    --bg-card: #ede0f8;
     --text-color: #3d0066;
-    --text-on-dark: #eec7fc;
-    --accent: #ffe047;
+    --text-on-dark: #f5e8ff;
+    --accent: #ffe566;
     --accent-bright: #ffce1f;
     --purple-light: #c670ff;
     --border-color: #3d0066;
-    --border-width: 4px;
-    --shadow-offset: 6px;
+    --border-width: 3px;
+    --shadow-offset: 4px;
     --shadow-color: #3d0066;
-    --hover-bg: rgba(61, 0, 102, 0.08);
+    --hover-bg: rgba(61, 0, 102, 0.06);
     --font-mono: 'Space Mono', 'Courier New', monospace;
   }
 
@@ -84,6 +85,7 @@ const lang = getLangFromUrl(Astro.url);
     font-family: var(--font-mono);
     background-color: var(--bg-color);
     color: var(--text-color);
+    font-size: clamp(14px, 1.5vw, 17px);
   }
 
   body {
@@ -91,14 +93,13 @@ const lang = getLangFromUrl(Astro.url);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   main {
     flex: 1;
-    max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
-    padding: 2rem;
+    padding: 0;
   }
 
   /* Global selection highlight */

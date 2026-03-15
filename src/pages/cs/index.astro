@@ -143,7 +143,7 @@ const featuredProjects = projects.slice(0, 4);
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 8rem 5vw;
+    padding: clamp(4rem, 10vw, 9rem) clamp(1.5rem, 5vw, 5rem);
     background-color: var(--bg-color);
   }
 
@@ -228,34 +228,34 @@ const featuredProjects = projects.slice(0, 4);
 
   .btn-primary {
     background: #3d0066;
-    color: #ffe047;
-    border: 4px solid #3d0066;
-    box-shadow: 6px 6px 0 #ffe047;
+    color: #ffe566;
+    border: 3px solid #3d0066;
+    box-shadow: 4px 4px 0 #ffe566;
   }
 
   .btn-primary:hover {
-    transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0 #ffe047;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #ffe566;
   }
 
   .btn-secondary {
     background: transparent;
     color: #3d0066;
-    border: 4px solid #3d0066;
-    box-shadow: 6px 6px 0 #c670ff;
+    border: 3px solid #3d0066;
+    box-shadow: 4px 4px 0 #c670ff;
   }
 
   .btn-secondary:hover {
     background: #3d0066;
-    color: #ffe047;
-    box-shadow: 3px 3px 0 #c670ff;
+    color: #ffe566;
+    box-shadow: 2px 2px 0 #c670ff;
   }
 
   /* Section Styles */
   .section-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 8rem 5vw;
+    padding: clamp(3rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
   }
 
   .section-header {
@@ -266,12 +266,12 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .section-number {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: #c670ff;
     font-family: var(--font-mono);
-    background: #3d0066;
-    padding: 0.25rem 0.625rem;
+    background: #4a0080;
+    padding: 0.2rem 0.5rem;
   }
 
   .section-title {
@@ -326,11 +326,11 @@ const featuredProjects = projects.slice(0, 4);
 
   .project-item {
     display: grid;
-    grid-template-columns: 60px 1fr auto auto;
+    grid-template-columns: 50px 1fr auto auto;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem 2.5rem;
-    background: #eec7fc;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: #ede0f8;
     text-decoration: none;
     border-bottom: 2px solid #3d0066;
   }
@@ -389,11 +389,11 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .project-tag {
-    font-size: 0.6875rem;
-    padding: 0.25rem 0.625rem;
-    background: #3d0066;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    background: #4a0080;
     border-radius: 0;
-    color: #ffe047;
+    color: #ffe566;
     opacity: 1;
     font-family: var(--font-mono);
     font-weight: 700;
@@ -456,9 +456,9 @@ const featuredProjects = projects.slice(0, 4);
 
   /* Footer */
   .site-footer {
-    padding: 3rem 5vw;
-    border-top: 5px solid #3d0066;
-    background: #3d0066;
+    padding: 2rem clamp(1.5rem, 5vw, 5rem);
+    border-top: 3px solid #3d0066;
+    background: #4a0080;
   }
 
   .footer-inner {
@@ -470,8 +470,8 @@ const featuredProjects = projects.slice(0, 4);
   }
 
   .footer-name {
-    font-size: 0.875rem;
-    color: #ffe047;
+    font-size: 0.8rem;
+    color: #ffe566;
     font-weight: 700;
     font-family: var(--font-mono);
   }
@@ -502,19 +502,20 @@ const featuredProjects = projects.slice(0, 4);
 
   @media (max-width: 768px) {
     .hero-section {
-      padding: 6rem 1.5rem;
-    }
-
-    .name-last {
-      margin-left: 8%;
-    }
-
-    .section-inner {
+      min-height: auto;
       padding: 5rem 1.5rem;
     }
 
+    .name-last {
+      margin-left: 6%;
+    }
+
+    .section-inner {
+      padding: 3.5rem 1.5rem;
+    }
+
     .about-content {
-      padding-left: 1.5rem;
+      padding-left: 1.25rem;
     }
 
     .footer-inner {

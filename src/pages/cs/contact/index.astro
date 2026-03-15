@@ -101,7 +101,7 @@ const emailUrl = 'mailto:richard@example.com';
 
 <style>
   .contact-page {
-    padding: 4rem 2rem;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
     max-width: 900px;
     margin: 0 auto;
     background-color: var(--bg-color);
@@ -176,21 +176,21 @@ const emailUrl = 'mailto:richard@example.com';
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    padding: 0.875rem 1rem;
+    padding: 0.75rem 1rem;
     text-decoration: none;
     color: #3d0066;
-    border: 4px solid #3d0066;
+    border: 3px solid #3d0066;
     border-radius: 0;
     font-family: var(--font-mono);
     transition: none;
-    box-shadow: 5px 5px 0 #3d0066;
-    background: #eec7fc;
+    box-shadow: 3px 3px 0 #3d0066;
+    background: #ede0f8;
   }
 
   .social-link:hover {
     background: #3d0066;
-    color: #ffe047;
-    box-shadow: 2px 2px 0 #3d0066;
+    color: #ffe566;
+    box-shadow: 1px 1px 0 #3d0066;
   }
 
   .social-link span {
@@ -202,10 +202,10 @@ const emailUrl = 'mailto:richard@example.com';
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    padding: 2rem;
-    border: 4px solid #3d0066;
-    box-shadow: 8px 8px 0 #3d0066;
-    background: #eec7fc;
+    padding: 1.5rem;
+    border: 3px solid #3d0066;
+    box-shadow: 5px 5px 0 #3d0066;
+    background: #ede0f8;
   }
 
   .form-group {
