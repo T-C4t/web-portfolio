@@ -28,7 +28,7 @@ function setup() {
   offset = width/3;
 
 
-for(i = 0; i < discs; i++){
+for(let i = 0; i < discs; i++){
   r1[i] = discs - i;
 }
 
@@ -39,7 +39,7 @@ for(i = 0; i < discs; i++){
 }
 
 function draw() {
-  background(253, 232, 233);
+  background("#f5e8ff");
   drawTowers();
   drawSelect();
 
@@ -106,7 +106,7 @@ function drawTowers(){
   fill(89, 100, 117);
 
 
-  for(i = 0; i < 3; i++){
+  for(let i = 0; i < 3; i++){
     rect(offset/2 + offset*i-(tWidth/2),height,tWidth,-height*2/3);
   }
   
@@ -119,7 +119,7 @@ function drawTowers(){
 
 function drawDiscs(tow,tpos){
   if(tow.length != 0){
-  for(i = 0; i < tow.length; i++){
+  for(let i = 0; i < tow.length; i++){
     fill(colors[tow[i]%colors.length].rgb);
 
     rect(offset/2 + (offset*(tpos-1))-((tow[i]*dWM) /2 ) , height-((i+1)*dHeight) -1, tow[i]*dWM,dHeight);

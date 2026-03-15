@@ -1,40 +1,29 @@
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #222, #444);
-            color: #fff;
-        }
+/* Body logic now handled by wrapper index.html inline CSS */
         
         .game-container {
             display: flex;
             gap: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             margin: 0 auto;
         }
         
         #game-board {
-            border: 2px solid #555;
-            border-radius: 5px;
+            border: var(--border-width) solid var(--border-color);
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border-radius: 8px;
             display: grid;
             grid-template-rows: repeat(20, 20px);
             grid-template-columns: repeat(10, 20px);
-            background-color: rgba(0, 0, 0, 0.6);
             height: 400px;
+            box-sizing: border-box;
         }
         
         .game-cell {
             width: 20px;
             height: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px dashed var(--border-color);
             box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         
         .side-panel {
@@ -44,14 +33,16 @@
         }
         
         #next-piece {
-            border: 2px solid #555;
-            border-radius: 5px;
+            border: var(--border-width) solid var(--border-color);
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border-radius: 8px;
             display: grid;
             grid-template-rows: repeat(4, 20px);
             grid-template-columns: repeat(4, 20px);
-            background-color: rgba(0, 0, 0, 0.6);
             width: 80px;
             height: 80px;
+            box-sizing: border-box;
         }
         
         .controls {
@@ -61,72 +52,72 @@
         }
         
         .score-display {
-            border: 2px solid #555;
-            width: 100px;
-            border-radius: 5px;
+            border: var(--border-width) solid var(--border-color);
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border-radius: 8px;
             padding: 15px;
             width: 100%;
             box-sizing: border-box;
-            background-color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
         }
         
         button {
             padding: 10px;
             cursor: pointer;
-            background: linear-gradient(to bottom, #4a5eff, #2c3fe0);
-            color: white;
-            border: none;
-            border-radius: 5px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 4px;
             font-weight: bold;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-family: inherit;
+            transition: transform 0.1s, box-shadow 0.1s;
+            box-shadow: 2px 2px 0 var(--shadow-color);
         }
         
         button:hover {
-            background: linear-gradient(to bottom, #5a6eff, #3c4ff0);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: var(--accent);
         }
         
         button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+            transform: translate(2px, 2px);
+            box-shadow: 0 0 0 var(--shadow-color);
         }
         
         h4 {
             margin: 0 0 10px 0;
-            color: #4a5eff;
-            text-shadow: 0 0 10px rgba(74, 94, 255, 0.5);
+            color: var(--text-color);
+            font-weight: bold;
         }
         
-        /* Tetromino colors with gradients and glow */
+        /* Tetromino colors with solid borders */
         .piece-I { 
-            background: linear-gradient(135deg, #00ffff, #00cccc);
-            box-shadow: 0 0 5px #00ffff;
+            background: #00ffff;
+            border: 2px solid var(--border-color);
         }
         .piece-O { 
-            background: linear-gradient(135deg, #ffff00, #cccc00);
-            box-shadow: 0 0 5px #ffff00;
+            background: #ffff00;
+            border: 2px solid var(--border-color);
         }
         .piece-T { 
-            background: linear-gradient(135deg, #9900ff, #7700cc);
-            box-shadow: 0 0 5px #9900ff;
+            background: #9900ff;
+            border: 2px solid var(--border-color);
         }
         .piece-S { 
-            background: linear-gradient(135deg, #00ff00, #00cc00);
-            box-shadow: 0 0 5px #00ff00;
+            background: #00ff00;
+            border: 2px solid var(--border-color);
         }
         .piece-Z { 
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            box-shadow: 0 0 5px #ff0000;
+            background: #ff0000;
+            border: 2px solid var(--border-color);
         }
         .piece-J { 
-            background: linear-gradient(135deg, #0000ff, #0000cc);
-            box-shadow: 0 0 5px #0000ff;
+            background: #0000ff;
+            border: 2px solid var(--border-color);
         }
         .piece-L { 
-            background: linear-gradient(135deg, #ff9900, #cc7a00);
-            box-shadow: 0 0 5px #ff9900;
+            background: #ff9900;
+            border: 2px solid var(--border-color);
         }
 
         /* Ghost piece styles */
@@ -171,34 +162,38 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
+            background: var(--bg-card);
+            color: var(--text-color);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
             display: none;
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
-            border: 2px solid #ff3333;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border: var(--border-width) solid var(--border-color);
+            z-index: 2000;
         }
         
         #game-over h2 {
-            color: #ff3333;
+            color: var(--text-color);
             margin-top: 0;
+            font-size: 2rem;
+            text-transform: uppercase;
         }
         
         #final-score {
             font-size: 24px;
             font-weight: bold;
-            color: #ffff00;
+            color: var(--text-color);
         }
         
         #restart-btn {
             margin-top: 15px;
-            background: linear-gradient(to bottom, #ff3333, #cc0000);
+            background: var(--accent);
+            color: var(--text-color);
         }
         
         #restart-btn:hover {
-            background: linear-gradient(to bottom, #ff4444, #dd0000);
+            background-color: var(--accent-bright);
         }
         
         .instruction-panel p {
@@ -209,27 +204,26 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            border: 2px solid #555;
-            border-radius: 5px;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 8px;
             padding: 15px;
             font-size: 14px;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
             z-index: 10;
         }
         
         .game-title {
             text-align: center;
-            color: #4a5eff;
+            color: var(--text-color);
             margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(74, 94, 255, 0.7);
             font-size: 32px;
             width: 100%;
             position: relative;
+            font-weight: bold;
         }
         
         .game-title h1 {
             margin: 0;
             padding: 20px 0;
         }
-
-        

@@ -6,11 +6,70 @@
     <title>Pathfinding Visualizer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        :root {
+            --bg-color: #f5e8ff;
+            --bg-card: #ede0f8;
+            --text-color: #3d0066;
+            --accent: #ffe566;
+            --border-color: #3d0066;
+            --border-width: 3px;
+            --shadow-offset: 4px;
+            --shadow-color: #3d0066;
+            --font-mono: 'Space Mono', 'Courier New', monospace;
+        }
         body {
             margin: 0;
             padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: var(--font-mono);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            background: var(--bg-card);
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border-radius: 8px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .portfolio-wrapper h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+        .portfolio-wrapper p {
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+        .portfolio-return {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: 2px 2px 0 var(--shadow-color);
+            transition: transform 0.1s, box-shadow 0.1s;
+            border-radius: 4px;
+        }
+        .portfolio-return:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0 0 0 var(--shadow-color);
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
         }
         .controls {
             margin-top: 10px;
@@ -20,15 +79,23 @@
         }
         button {
             padding: 8px 12px;
-            background: #1B1F3B;
-            color: white;
-            border: none;
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: var(--border-width) solid var(--border-color);
             border-radius: 4px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: inherit;
+            transition: transform 0.1s, box-shadow 0.1s;
+            box-shadow: 2px 2px 0 var(--shadow-color);
         }
         button:hover {
-            background: #121427;
+            background-color: var(--accent);
+        }
+        button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0 0 0 var(--shadow-color);
         }
         .info {
             margin-top: 10px;
@@ -37,8 +104,16 @@
     </style>
 </head>
 <body>
+    <div class="portfolio-wrapper">
+        <h1>Pathfinding Visualizer</h1>
+        <p>An interactive visualization of pathfinding algorithms. Click to toggle walls, press 'R' for random obstacles, use buttons to control the simulation.</p>
+        <p style="font-size: 0.9em; margin-bottom: 20px;"><em>Legend: Green = Start, Blue = End, White = Empty, Black = Wall, Red = Current, Light Blue = Path</em></p>
+        <a href="/" class="portfolio-return">← Return to Portfolio</a>
+    </div>
     <div id="canvas-container"></div>
-    <div class="info">
+    <div id="controls-container" class="controls"></div>
+    <!-- Hidden original info -->
+    <div class="info" style="display: none;">
         <p><strong>Instructions:</strong> Click to toggle walls, press 'R' for random obstacles, use buttons to control the simulation</p>
         <p>Green = Start, Blue = End, White = Empty, Black = Wall, Red = Current, Light Blue = Path</p>
     </div>

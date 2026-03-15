@@ -131,5 +131,5 @@ function classify(left, right) {
       return letters[i].char;
     }
   }
-  return 0;
+  return ' ';
 }

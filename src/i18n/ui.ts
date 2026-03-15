@@ -8,13 +8,13 @@ export const defaultLang = 'en';
 export const ui = {
   en: {
     'nav.home': 'Home',
-    'nav.about': 'About',
+    'nav.projects': 'Projects',
     'nav.resume': 'Resume',
     'nav.contact': 'Contact',
   },
   cs: {
     'nav.home': 'Domů',
-    'nav.about': 'O mně',
+    'nav.projects': 'Projekty',
     'nav.resume': 'Životopis',
     'nav.contact': 'Kontakt',
   },

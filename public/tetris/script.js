@@ -391,8 +391,8 @@ function renderBoard() {
          // Create a flash effect for cleared lines
          document.querySelector('#game-board').animate(
              [
-                 { backgroundColor: 'rgba(255, 255, 255, 0.5)' },
-                 { backgroundColor: 'rgba(0, 0, 0, 0.6)' }
+                 { backgroundColor: 'var(--accent)' },
+                 { backgroundColor: 'var(--bg-card)' }
              ],
              { duration: 300, easing: 'ease-out' }
          );
@@ -525,9 +525,13 @@ function renderBoard() {
  
  document.addEventListener('touchstart', (e) => {
      if (isGameOver || isPaused) return;
+     // prevent default scrolling behavior
+     if(e.target.closest('#game-board') || e.target.closest('.game-container')) {
+         e.preventDefault();
+     }
      touchStartX = e.touches[0].clientX;
      touchStartY = e.touches[0].clientY;
- });
+ }, {passive: false});
  
  document.addEventListener('touchend', (e) => {
      if (isGameOver || isPaused) return;
@@ -566,22 +570,9 @@ function renderBoard() {
      if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
          hardDrop();
      }
- });
+ }, {passive: false});
  
- // Add special styling for active buttons
- document.querySelectorAll('button').forEach(button => {
-     button.addEventListener('mousedown', function() {
-         this.style.transform = 'translateY(2px)';
-     });
-     
-     button.addEventListener('mouseup', function() {
-         this.style.transform = '';
-     });
-     
-     button.addEventListener('mouseleave', function() {
-         this.style.transform = '';
-     });
- });
+ // CSS now handles active button styling
  
  // Initialize the game board (but don't start until button press)
  initGame();

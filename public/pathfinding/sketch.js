@@ -82,9 +82,9 @@
         resetPathBtn.parent("controls-container");
         resetPathBtn.mousePressed(() => resetPath());
 
-        generateDataSet = createButton("Generate and Export Results to CSV");
-        generateDataSet.parent("controls-container");
-        generateDataSet.mousePressed(() => benchmarkAllModesOnMazes());
+        generateDataSetBtn = createButton("Generate and Export Results to CSV");
+        generateDataSetBtn.parent("controls-container");
+        generateDataSetBtn.mousePressed(() => benchmarkAllModesOnMazes());
       }
 
       function initializeMatrix() {
@@ -101,7 +101,7 @@
 
       function draw() {
         if (needsRedraw || go) {
-          background(240);
+          background("#f5e8ff");
           drawMatrix();
           updateUI();
           needsRedraw = false;

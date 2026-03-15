@@ -5,9 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris Game</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        :root {
+            --bg-color: #f5e8ff;
+            --bg-card: #ede0f8;
+            --text-color: #3d0066;
+            --accent: #ffe566;
+            --border-color: #3d0066;
+            --border-width: 3px;
+            --shadow-offset: 4px;
+            --shadow-color: #3d0066;
+            --font-mono: 'Space Mono', 'Courier New', monospace;
+        }
+        body {
+            font-family: var(--font-mono);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .portfolio-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--bg-card);
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+            border-radius: 8px;
+            text-align: left;
+            z-index: 1000;
+        }
+        .portfolio-wrapper h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+        .portfolio-wrapper p {
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+        .portfolio-return {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: 2px 2px 0 var(--shadow-color);
+            transition: transform 0.1s, box-shadow 0.1s;
+            border-radius: 4px;
+        }
+        .portfolio-return:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0 0 0 var(--shadow-color);
+        }
+    </style>
 </head>
 <body>
-    <div class="instruction-panel">
+    <div class="portfolio-wrapper">
+        <h1>Tetris</h1>
+        <p>A classic Tetris implementation. Controls: <br/> 
+        <b>Left/Right Arrows</b>: Move <br/>
+        <b>Up Arrow</b>: Rotate <br/>
+        <b>Down Arrow</b>: Soft Drop <br/>
+        <b>Space</b>: Hard Drop</p>
+        <a href="/" class="portfolio-return">← Return to Portfolio</a>
+    </div>
+
+    <!-- Hidden since we merged instructions into wrapper -->
+    <div class="instruction-panel" style="display: none;">
         <h4>Controls:</h4>
         <p><span class="key">←</span><span class="key">→</span> Move left/right</p>
         <p><span class="key">↑</span> Rotate</p>
