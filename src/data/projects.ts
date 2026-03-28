@@ -71,8 +71,8 @@ export const projects: Project[] = [
       cs: 'IBO PORG CS',
     },
     description: {
-      en: 'Interactive web-based game and educational platform built with HTML, CSS, and JavaScript.',
-      cs: 'Interaktivní webová hra a vzdělávací platforma postavená s HTML, CSS a JavaScriptem.',
+      en: 'App for MSVK (IBO/Digiflow) built as part of a programming seminar at Gymnázium PORG. Interactive web-based educational platform using HTML, CSS, and JavaScript.',
+      cs: 'Aplikace pro MSVK (IBO/Digiflow) vytvořená v rámci programovacího semináře na Gymnáziu PORG. Interaktivní webová vzdělávací platforma postavená s HTML, CSS a JavaScriptem.',
     },
     category: 'frontend',
     tags: ['HTML', 'JavaScript', 'Game', 'Education'],
