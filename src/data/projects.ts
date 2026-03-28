@@ -27,8 +27,8 @@ export const projects: Project[] = [
       cs: 'Speechless',
     },
     description: {
-      en: 'Machine learning application for hands-free computer control via air writing and voice interactions.',
-      cs: 'Aplikace strojového učení pro ovládání počítače bez použití rukou pomocí psaní vzduchem a hlasových interakcí.',
+      en: 'Hands-free computer control through air writing and voice commands. Uses machine learning to interpret gestures and spoken input in real time.',
+      cs: 'Ovládání počítače bez rukou pomocí psaní ve vzduchu a hlasových příkazů. Využívá strojové učení k interpretaci gest a mluveného vstupu v reálném čase.',
     },
     category: 'tools',
     tags: ['Python', 'Machine Learning', 'Air Writing', 'Voice Control'],
@@ -37,12 +37,12 @@ export const projects: Project[] = [
   {
     id: 'semafor-demo',
     title: {
-      en: 'Semafor Demo',
-      cs: 'Semafor Demo',
+      en: 'Semaphore',
+      cs: 'Semafor',
     },
     description: {
-      en: 'Interactive semaphore alphabet visualizer using hand gesture recognition with ML5. Draw letters in the air and see them converted to semaphore code.',
-      cs: 'Interaktivní vizualizátor semaforové abecedy s rozpoznáváním gest rukou pomocí ML5. Kreslete písmena ve vzduchu a sledujte jejich převod do semaforového kódu.',
+      en: 'Real-time pose detection that translates semaphore flag signals into text. Built with ml5.js — stand in front of your webcam and use arm positions to spell letters.',
+      cs: 'Detekce pozic těla v reálném čase, která překládá signály semaforové vlajkové abecedy do textu. Postavte se před webovou kameru a pomocí poloh rukou hláskujte písmena.',
     },
     category: 'frontend',
     tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
@@ -56,8 +56,8 @@ export const projects: Project[] = [
       cs: 'Webové portfolio',
     },
     description: {
-      en: 'Personal portfolio website built with Astro featuring bilingual support (EN/CS), dark/light theme, and Apple-inspired design with pink/purple accent.',
-      cs: 'Osobní webové portfolio postavené na Astro s dvojjazyčnou podporou (EN/CS), tmavým/světlým tématem a designem inspirovaným Apple s růžovo-fialovým akcentem.',
+      en: 'This site. Bilingual portfolio built with Astro, featuring dark/light theme, animated gradient backgrounds, and an Apple-inspired monochrome design with pink-purple accents.',
+      cs: 'Tento web. Dvojjazyčné portfolio postavené na Astro s tmavým/světlým tématem, animovanými gradientními pozadími a designem inspirovaným Apple s růžovo-fialovými akcenty.',
     },
     category: 'portfolio',
     tags: ['Astro', 'TypeScript', 'CSS', 'Bilingual', 'i18n'],
@@ -65,14 +65,14 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/T-C4t/web-portfolio',
   },
   {
-    id: 'ibo-porg-cs',
+    id: 'digiflow',
     title: {
-      en: 'IBO PORG CS',
-      cs: 'IBO PORG CS',
+      en: 'Digiflow',
+      cs: 'Digiflow',
     },
     description: {
-      en: 'App for MSVK (IBO/Digiflow) built as part of a programming seminar at Gymnázium PORG. Interactive web-based educational platform using HTML, CSS, and JavaScript.',
-      cs: 'Aplikace pro MSVK (IBO/Digiflow) vytvořená v rámci programovacího semináře na Gymnáziu PORG. Interaktivní webová vzdělávací platforma postavená s HTML, CSS a JavaScriptem.',
+      en: 'Interactive web-based educational platform for MSVK (IBO/Digiflow) built as part of a programming seminar at Gymnázium PORG. Features HTML, CSS, and JavaScript-based interactive learning tools.',
+      cs: 'Interaktivní webová vzdělávací platforma pro MSVK (IBO/Digiflow) vytvořená v rámci programovacího semináře na Gymnáziu PORG. Nabízí interaktivní výukové nástroje postavené na HTML, CSS a JavaScriptu.',
     },
     category: 'frontend',
     tags: ['HTML', 'JavaScript', 'Game', 'Education'],
@@ -85,8 +85,8 @@ export const projects: Project[] = [
       cs: 'Věže Hanoi',
     },
     description: {
-      en: 'Classic puzzle game with interactive visualization. Solve the puzzle by moving all disks from one peg to another following the rules.',
-      cs: 'Klasická logická hra s interaktivní vizualizací. Vyřešte puzzle přesunutím všech disků z jednoho kolíku na druhý podle pravidel.',
+      en: 'Classic mathematical puzzle — move an entire stack of disks between pegs, one disk at a time, never placing a larger disk on a smaller one. Click columns to select and transfer disks.',
+      cs: 'Klasický matematický puzzle — přesuňte celou hromádku disků mezi kolíky, po jednom disku, aniž byste větší disk položili na menší. Kliknutím na sloupce vyberte a přeneste disky.',
     },
     category: 'frontend',
     tags: ['p5.js', 'JavaScript', 'Game', 'Visualization'],
@@ -100,8 +100,8 @@ export const projects: Project[] = [
       cs: 'Vizualizátor hledání cesty',
     },
     description: {
-      en: 'Visualize pathfinding algorithms in action. Watch Dijkstra\'s algorithm find the shortest path in real-time.',
-      cs: 'Vizualizace algoritmů hledání cesty v akci. Sledujte Dijkstrův algoritmus najít nejkratší cestu v reálném čase.',
+      en: 'Interactive visualization of Dijkstra\'s algorithm. Click to place walls, press R for random obstacles, then watch the algorithm find the shortest path in real time.',
+      cs: 'Interaktivní vizualizace Dijkstrova algoritmu. Klikáním umisťujte překážky, stiskněte R pro náhodné překážky a sledujte, jak algoritmus najde nejkratší cestu v reálném čase.',
     },
     category: 'frontend',
     tags: ['p5.js', 'JavaScript', 'Algorithm', 'Dijkstra'],
@@ -115,8 +115,8 @@ export const projects: Project[] = [
       cs: 'Tetris',
     },
     description: {
-      en: 'Classic block-stacking puzzle game. Rotate and place falling blocks to clear lines.',
-      cs: 'Klasická hra s skládáním bloků. Otáčejte a umisťujte padající bloky pro vyčištění řádků.',
+      en: 'Classic Tetris clone with keyboard controls. Arrow keys to move and rotate, spacebar for hard drop. Tracks score, lines cleared, and level progression.',
+      cs: 'Klasický klon Tetrisu s ovládáním klávesnicí. Šipkami posun a rotace, mezerník pro rychlý pád. Sleduje skóre, počet vyčištěných řádků a postup úrovněmi.',
     },
     category: 'frontend',
     tags: ['JavaScript', 'Game', 'Classic'],
