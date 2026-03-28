@@ -33,6 +33,7 @@ export const projects: Project[] = [
     category: 'tools',
     tags: ['Python', 'Machine Learning', 'Air Writing', 'Voice Control'],
     repoUrl: 'https://github.com/T-C4t/speechless',
+    image: '/images/sign.png',
   },
   {
     id: 'semafor-demo',
@@ -48,6 +49,7 @@ export const projects: Project[] = [
     tags: ['p5.js', 'ml5.js', 'Machine Learning', 'Hand Gesture'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/semafor-demo',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/semafor-demo/',
+    image: '/images/semafor.png',
   },
   {
     id: 'web-portfolio',
@@ -63,6 +65,7 @@ export const projects: Project[] = [
     tags: ['Astro', 'TypeScript', 'CSS', 'Bilingual', 'i18n'],
     liveUrl: 'https://web-portfolio-k3id.onrender.com/',
     repoUrl: 'https://github.com/T-C4t/web-portfolio',
+    image: '/images/portfolio.png',
   },
   {
     id: 'digiflow',
@@ -77,6 +80,7 @@ export const projects: Project[] = [
     category: 'frontend',
     tags: ['HTML', 'JavaScript', 'Game', 'Education'],
     repoUrl: 'https://github.com/T-C4t/IBO-PORG-CS',
+    image: '/images/digiflow.png',
   },
   {
     id: 'tower-of-hanoi',
@@ -92,6 +96,7 @@ export const projects: Project[] = [
     tags: ['p5.js', 'JavaScript', 'Game', 'Visualization'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tower%20of%20hanoi',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/tower-of-hanoi/',
+    image: '/images/tower.png',
   },
   {
     id: 'pathfinding-visualizer',
@@ -107,6 +112,7 @@ export const projects: Project[] = [
     tags: ['p5.js', 'JavaScript', 'Algorithm', 'Dijkstra'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/pathfinding',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/pathfinding/',
+    image: '/images/path.png',
   },
   {
     id: 'tetris',
@@ -122,6 +128,7 @@ export const projects: Project[] = [
     tags: ['JavaScript', 'Game', 'Classic'],
     repoUrl: 'https://github.com/T-C4t/mini-projects/tree/main/tetris',
     liveUrl: 'https://web-portfolio-k3id.onrender.com/tetris/',
+    image: '/images/tetris.png',
   }
 ];
 
